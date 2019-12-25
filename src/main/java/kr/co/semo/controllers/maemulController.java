@@ -83,7 +83,11 @@ public class maemulController {
 		//일반회원 관심매물 처리를 위한 쿠키 생성
 		//세션에 저장되어있는 userType ==1 (일반회원) 이면 쿠키 생성
 		HttpSession session = request.getSession();
-		int userType = (int) session.getAttribute("userType");
+		int userType = 0;
+		if (session.getAttribute("userType")!=null) {
+			userType = (int) session.getAttribute("userType");
+		}
+		
 		if (userType == 1) {
 			String cook_maemulNum = null;
 			String maemulNum = null;
