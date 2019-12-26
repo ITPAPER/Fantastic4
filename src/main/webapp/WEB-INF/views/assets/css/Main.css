@@ -336,333 +336,327 @@ body .noUi-connect {
 
 ------------- 복사해서 사용하세요  --------------------
 html, body {
-	margin: 0;
-	height: 100%;
-	padding: 0;
+   margin: 0;
+   height: 100%;
+   padding: 0;
 }
 
 .logo {
-	margin-left: 30px;
+   margin-left: 30px;
 }
 
 .menu_navbar {
-	width: 100%;
-	padding-right: 40px;
-	margin-bottom: 0;
-	line-height: 45px;
+   width: 100%;
+   padding-right: 40px;
+   margin-bottom: 0;
+   line-height: 45px;
 }
 
 .navbar-text {
-	font-size: 20px;
-	font-weight: bold;
+   font-size: 20px;
+   font-weight: bold;
 }
 
 .navbar-right {
-	font-size: 15px;
+   font-size: 15px;
 }
 
 .content {
-	height: 100%;
-	overflow: hidden;
+   height: 100%;
+   overflow: hidden;
 }
 
 .footer {
-	width: 100%;
-	height: 320px;
-	background: #333;
+   width: 100%;
+   height: 320px;
+   background: #333;
 }
 
 .modal-dialog.mymodal-size {
-	width: 400px;
-	height: 360px;
+   width: 400px;
+   height: 360px;
 }
 
 .mymodal-content {
-	width: 100%;
-	height: 100%;
+   width: 100%;
+   height: 100%;
 }
 
 .loginmodal-title {
-	text-align: center;
-	margin-top: 20px;
+   text-align: center;
+   margin-top: 20px;
 }
 
 .modal form {
-	margin-top: 20px;
+   margin-top: 20px;
 }
 
 .modal .input-container {
-	margin-bottom: 10px;
-	text-align: center;
+   margin-bottom: 10px;
+   text-align: center;
 }
 
 .modal .input-info {
-	width: 270px;
-	display: inline-block;
+   width: 270px;
+   display: inline-block;
 }
 
 .modal .forgot-pw input {
-	margin-left: 50px;
+   margin-left: 50px;
 }
 
 .modal .forgot-pw span {
-	margin-left: 90px;
+   margin-left: 90px;
 }
 
 .mymodal-body .adduser {
-	margin-left: 55px;
+   margin-left: 55px;
 }
 
 .loginbtn {
-	margin-top: 30px;
-	display: inline-block;
-	width: 270px;
+   margin-top: 30px;
+   display: inline-block;
+   width: 270px;
 }
 
 ------------- 복사해서 사용하세요 END --------------------
 .select-menu {
-	width: 100%;
-	line-height: 50px;
-	background: #eee;
+   width: 100%;
+   line-height: 50px;
+   background: #eee;
 }
 
 .main-content {
-	height: 100%;
-	margin: 0;
-	padding: 0;
+   height: 100%;
+   margin: 0;
+   padding: 0;
 }
 
 *************** 카카오 맵 **************
 .map {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	position: relative;
-	z-index: 1;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   position: relative;
+   z-index: 1;
 }
 
 ******** 매물리스트 **********
 .maemulList {
-	height: calc(100% - 250px);
-	overflow: scroll;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
+   height: calc(100% - 250px);
+   overflow: scroll;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
 }
 
 .list-item {
-	width: 100%;
-	height: 130px;
-	border-bottom: 1px solid #ddd;
-	position: relative;
-	padding: 8px 8px 8px 136px;
+   width: 100%;
+   height: 130px;
+   border-bottom: 1px solid #ddd;
+   position: relative;
+   padding: 8px 8px 8px 136px;
 }
 
 .list-item:hover {
-	background: #efefef;
+   background: #efefef;
 }
 
 .list-item .image-container {
-	overflow: hidden;
-	position: absolute;
-	top: 6px;
-	left: 6px;
-	width: 118px;
-	height: 118px;
-	border: 1px solid rgba(0, 0, 0, .1);
-	background-size: 40px 40px;
-	background-position: center center;
-	background-repeat: no-repeat;
+   overflow: hidden;
+   position: absolute;
+   top: 6px;
+   left: 6px;
+   width: 118px;
+   height: 118px;
+   border: 1px solid rgba(0, 0, 0, .1);
+   background-size: 40px 40px;
+   background-position: center center;
+   background-repeat: no-repeat;
 }
 
 .list-item .image {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
 }
 
 .list-item .price-container {
-	margin-bottom: 5px;
+   margin-bottom: 5px;
 }
 
 .list-item .detail-container {
-	margin-top: 10px;
+   margin-top: 10px;
 }
 
 .primary {
-	font-size: 18px;
-	font-weight: bold;
+   font-size: 18px;
+   font-weight: bold;
 }
 
 .premium {
-	font-weight: 700;
-	font-size: 13px;
-	color: #10bcce;
-	margin-bottom: -5px;
+   font-weight: 700;
+   font-size: 13px;
+   color: #10bcce;
+   margin-bottom: -5px;
 }
 
 .option {
-	color: #333;
-	font-size: 12px;
+   color: #333;
+   font-size: 12px;
 }
 
 .option-tag {
-	font-size: 12px;
-	color: #777;
-	background-color: #f1f1f1;
-	margin-right: 4px;
-	padding: 0 3px;
+   font-size: 12px;
+   color: #777;
+   background-color: #f1f1f1;
+   margin-right: 4px;
+   padding: 0 3px;
 }
 
 ************ *************
 .pageCount {
-	position: relative;
+   position: relative;
 }
 
 .pageCount .page {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
 }
 
 .list {
-	height: 100%;
-	padding: 0;
+   height: 100%;
+   padding: 0;
 }
 ************** select *************
 .select-menu .trade, .select-menu .price {
-	display: inline;
+   display: inline;
 }
 
 .trade {
-	margin-left: 40px;
+   margin-left: 40px;
 }
 
 .dropdown-menu {
-	padding: 10px;
-	margin-top: 10px;
+   padding: 10px;
+   margin-top: 10px;
 }
 
 .price .pricemenu {
-	width: 300px;
+   width: 300px;
 }
 
 .priceSales {
-	width: 100%;
-	position: relative;
+   width: 100%;
+   position: relative;
 }
 
 .priceSales .centerprice {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	color: #888;
-	top: -40px;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   color: #888;
+   top: -40px;
 }
 
 .priceSales .startprice {
-	position: absolute;
-	left: 0;
-	color: #0066ff;
-	top: -40px;
+   position: absolute;
+   left: 0;
+   color: #0066ff;
+   top: -40px;
 }
 
 .priceSales .endprice {
-	position: absolute;
-	right: 0;
-	color: #0066ff;
-	top: -40px;
+   position: absolute;
+   right: 0;
+   color: #0066ff;
+   top: -40px;
 }
 
 .mpriceSales {
-	width: 100%;
-	position: relative;
+   width: 100%;
+   position: relative;
 }
 
 .mpriceSales .mcenterprice {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	color: #888;
-	top: -40px;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   color: #888;
+   top: -40px;
 }
 
 .mpriceSales .mstartprice {
-	position: absolute;
-	left: 0;
-	color: #0066ff;
-	top: -40px;
+   position: absolute;
+   left: 0;
+   color: #0066ff;
+   top: -40px;
 }
 
 .mpriceSales .mendpirce {
-	position: absolute;
-	right: 0;
-	color: #0066ff;
-	top: -40px;
+   position: absolute;
+   right: 0;
+   color: #0066ff;
+   top: -40px;
 }
 
 #salesrange, #monthrange, #arearange {
-	width: 250px;
-	margin-left: 15px;
-	margin-top: 30px;
+   width: 250px;
+   margin-left: 15px;
+   margin-top: 30px;
 }
 
 .area {
-	display: inline;
+   display: inline;
 }
 
 .area .areamenu {
-	width: 300px;
+   width: 300px;
 }
 
 .dediArea {
-	width: 100%;
-	position: relative;
+   width: 100%;
+   position: relative;
 }
 
 .dediArea .centerarea {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	color: #888;
-	top: -40px;
-	font-size: 10px;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   color: #888;
+   top: -40px;
+   font-size: 10px;
 }
 
 .dediArea .startarea {
-	position: absolute;
-	left: 0;
-	color: #0066ff;
-	top: -40px;
+   position: absolute;
+   left: 0;
+   color: #0066ff;
+   top: -40px;
 }
 
 .dediArea .endarea {
-	position: absolute;
-	right: 0;
-	color: #0066ff;
-	top: -40px;
-}
-range background
-body .noUi-connect {
-	background: #0099ff;
+   position: absolute;
+   right: 0;
+   color: #0066ff;
+   top: -40px;
 }
 
-마커
-.marker {
-	width: 40px;
-	line-height: 40px;
-	background: #368AFF;
-	border-radius: 20px;
-	color: white;
-	text-align: center;
-	font-size: 30px;
+body .noUi-connect {
+   background: #0099ff;
 }
-광고 이미지
-.pageCount a img {
-	height : 100%;
-	width : 100%;
-} */
+
+.marker {
+   width: 40px;
+   line-height: 40px;
+   background: #368AFF;
+   border-radius: 20px;
+   color: white;
+   text-align: center;
+   font-size: 30px;
+}

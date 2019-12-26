@@ -21,8 +21,16 @@ public interface MaemulService {
     */
    public List<Maemul> getMaemulList(Maemul input) throws Exception;
    
+   /**
+    * 메인에 데이터를 전달해줄 매물조회 
+    * @param input
+    * @return List<Maemul>
+    * @throws Exception
+    */
+   public List<Maemul> getMaemulManage(Maemul input);
+   
    public Maemul getMain(Maemul input) throws Exception;
-
+   
    public int getMaemulCount(Maemul input) throws Exception;
    
    /**
@@ -33,6 +41,12 @@ public interface MaemulService {
     */
    public int AddMaemul(Maemul input) throws Exception;
 
+   /**
+    * 매물 데이터 갱신하기 
+    * @param maemul 등록할 정보를 담고 있는 Beans
+    * @return int 
+    * @throws Exception
+    */
    public int editMaemul(Maemul input) throws Exception;
 
    public int deleteMaemul(Maemul input) throws Exception;

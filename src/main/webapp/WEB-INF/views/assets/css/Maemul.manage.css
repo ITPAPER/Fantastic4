@@ -3,127 +3,127 @@
  a {text-decoration: none;}
 
 .maemul a:link {
-	text-decoration: none;
-	color: #646464;
+   text-decoration: none;
+   color: #646464;
 }
 .maemul a:active {
-	text-decoration: none;
-	color: #646464;
+   text-decoration: none;
+   color: #646464;
 }
 .maemul a:visited {
-	text-decoration: none;
-	color: #646464;
+   text-decoration: none;
+   color: #646464;
 }
 
 .maemul a:hover {
-	text-decoration: none;
-	color: #646464;
+   text-decoration: none;
+   color: #646464;
 }
 .function a:link {
-	text-decoration: none;
-	color: #fff;
+   text-decoration: none;
+   color: #fff;
 }
 .function a:active {
-	text-decoration: none;
-	color: #fff;
+   text-decoration: none;
+   color: #fff;
 }
 .function a:visited {
-	text-decoration: none;
-	color: #fff;
+   text-decoration: none;
+   color: #fff;
 }
 
 .function a:hover {
-	text-decoration: none;
-	color: #fff;
+   text-decoration: none;
+   color: #fff;
 }
 .maemul-top:nth-last-child(1):after {
-	content: "";
-	
+   content: "";
+   
 }
 .maemul-top:after {
-	content: "/";
-	padding-left: 3px;
+   content: "/";
+   padding-left: 3px;
 }
 
 .maemul-image {
-	width: 95px;
-	height: 95px;
-	float: left;
+   width: 95px;
+   height: 95px;
+   float: left;
 }
 .mark {
-	display: inline-block;
-	width: 95px;
-	height: 95px;
-	background-color: #646464;
-	position: relative;
-	bottom: 95px;
-	 opacity: 0.8;
-	 color: white;
-	 text-align: center;
-	 line-height: 95px;
-	 font-weight: bold;
+   display: inline-block;
+   width: 95px;
+   height: 95px;
+   background-color: #646464;
+   position: relative;
+   bottom: 95px;
+    opacity: 0.8;
+    color: white;
+    text-align: center;
+    line-height: 95px;
+    font-weight: bold;
 
-}	
+}   
 .fa-check{
-	position: absolute;
-	top: 20px;
-	left: 40px;
+   position: absolute;
+   top: 20px;
+   left: 40px;
 }
 .maemul-image img {
-	
-	width: 100%;
-	height: 100%;
+   
+   width: 100%;
+   height: 100%;
 }
 .maemul-detailed {
-	border-bottom: 1px solid silver;
-	padding-left: 105px;
+   border-bottom: 1px solid silver;
+   padding-left: 105px;
 }
 
 .title {
-	margin-top: 60px;
-	text-align: center;
-	font-size: 26px;
-	font-weight: bold;
+   margin-top: 60px;
+   text-align: center;
+   font-size: 26px;
+   font-weight: bold;
 }
 .Title_Ex {
-	text-align: center;
-	margin-top: 5px;
-	margin-bottom: 10px;
-	font-size: 14px;
-	color: #777777;
+   text-align: center;
+   margin-top: 5px;
+   margin-bottom: 10px;
+   font-size: 14px;
+   color: #777777;
 }
 .input-group {
-	width: 400px;
-	padding-top: 20px;
-	
+   width: 400px;
+   padding-top: 20px;
+   
 
 
 }
 .maemul-simple {
-	font-size: 14px;
-	padding-top: 10px;
-	color: #777777;
+   font-size: 14px;
+   padding-top: 10px;
+   color: #777777;
 }
 .maemul-address {
-	font-size: 14px;
-	font-weight: bold;
-	padding-top: 6px;
+   font-size: 14px;
+   font-weight: bold;
+   padding-top: 6px;
 }
 .address-road {
-	font-size: 14px;
-	font-weight: bold;
+   font-size: 14px;
+   font-weight: bold;
 }
 table {
-	margin-top: 20px;
+   margin-top: 20px;
 }
-tr th {	
-	text-align: center;
+tr th {   
+   text-align: center;
 }
 th:nth-child(2) {
-	width: 200px;
+   width: 200px;
 }
 .maemul {
-	padding-left: 20px;
+   padding-left: 20px;
 
 }
 
@@ -131,71 +131,71 @@ th:nth-child(2) {
      border-top: 2px solid #ddd;
 }
 .badge-type {
-	background-color: #0080FF
+   background-color: #0080FF
 
 }
 .badge-gun {
-	background-color: #848484
+   background-color: #848484
 }
 .price {
-	font-size: 18px;
+   font-size: 17px;
 }
 .price-item {
-	font-size: 14px;
-	margin-left: 2px;
+   font-size: 14px;
+   margin-left: 2px;
 }
 .Gprice-item {
-	font-size: 17px;
+   font-size: 17px;
 }
 .badge {
-	height: 25px;
-	line-height: 19px;
-	font-size: 13px;
+   height: 25px;
+   line-height: 19px;
+   font-size: 13px;
 }
 .function {
-	padding-top: 5px;
-	text-align: right;
+   padding-top: 5px;
+   text-align: right;
 }
 td:nth-child(2) {
-	border-left: 2px solid #ddd;
-	text-align: center;
-	
+   border-left: 2px solid #ddd;
+   text-align: center;
+   
 }
 tbody {
-	border-bottom: 2px solid #ddd;
-	background-color: white;
-	
+   border-bottom: 2px solid #ddd;
+   background-color: white;
+   
 
 }
 .register-info {
-	padding-top: 35px;
-	font-size: 14px;
+   padding-top: 35px;
+   font-size: 14px;
 }
 .maemul-number {
-	padding-top: 5px;
-	padding-bottom: 5px;
+   padding-top: 5px;
+   padding-bottom: 5px;
 
 }
 tbody tr {
-	margin-bottom: 5px;
+   margin-bottom: 5px;
 }
 td {
-	margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #E8F5FF;
 }
 tbody tr:nth-child(1) {
-	border-bottom: 25px solid #eee;	
+   border-bottom: 25px solid #eee;   
 }
 tbody tr:nth-child(2) {
-	border-bottom: 25px solid #eee;		
+   border-bottom: 25px solid #eee;      
 }
 
 .page-number {
-	text-align: center;
+   text-align: center;
 }
 .main-item {
-	min-height: 400px;
+   min-height: 400px;
 }

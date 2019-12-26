@@ -6,15 +6,15 @@
      <!-- Beans의 맴버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
      <resultMap type="kr.co.semo.helper.UploadItem" id="maemulFileMap">
         <result property="item_num" column="item_num" />
- 		<result property="fieldName" column="fieldName"/>
- 		<result property="orginName" column="origin_name" />
- 		<result property="file_dir" column="file_dir"/>
- 		<result property="filePath" column="file_name"/>
- 		<result property="contentType" column="content_type"/>
- 		<result property="fileSize" column="file_size"/>
- 		<result property="reg_date" column="reg_date"/>
- 		<result property="edit_date" column="edit_date"/>
- 		<result property="maemul_num" column="maemul_num"/>
+       <result property="fieldName" column="fieldName"/>
+       <result property="orginName" column="origin_name" />
+       <result property="file_dir" column="file_dir"/>
+       <result property="filePath" column="file_name"/>
+       <result property="contentType" column="content_type"/>
+       <result property="fileSize" column="file_size"/>
+       <result property="reg_date" column="reg_date"/>
+       <result property="edit_date" column="edit_date"/>
+       <result property="maemul_num" column="maemul_num"/>
      </resultMap>
      
      <!--다중행 데이터를 조회하기 위한 기능 정의 -->
@@ -30,17 +30,26 @@
      <insert id="insertItem"
      parameterType="kr.co.semo.helper.UploadItem"
      keyProperty="item_num"
- 	useGeneratedKeys="true">
-		INSERT INTO item_file (fieldName, origin_name, file_dir, file_name, content_type, file_size, reg_date, edit_date, maemul_num)
- 		VALUES (
- 			#{fieldName},#{orginName},#{file_dir},#{filePath},#{contentType},#{fileSize},#{reg_date},#{edit_date},#{maemul_num}
- 		)
+    useGeneratedKeys="true">
+      INSERT INTO item_file (fieldName, origin_name, file_dir, file_name, content_type, file_size, reg_date, edit_date, maemul_num)
+       VALUES (
+          #{fieldName},#{orginName},#{file_dir},#{filePath},#{contentType},#{fileSize},#{reg_date},#{edit_date},#{maemul_num}
+       )
      </insert>
      
+     <!-- 매물이미지 갱신을 위한 기능 정의 -->
+     <update id="updateItem"
+     parameterType="kr.co.semo.helper.UploadItem">
+        UPDATE item_file SET
+           fieldName=#{fieldName}, origin_name = #{origin_name}, file_dir=#{file_dir}, file_name=#{file_name}, content_type=#{content_type},
+           file_size=#{file_size}, reg_date=#{reg_date}, edit_date=#{edit_date}, maemul_num=#{maemul_num}
+        WHERE maemul_num=#{maemul_num}
+     </update>
+     
      <!-- 매물 파일 삭제 -->
-	<delete id="deleteItem"
-		parameterType="kr.co.semo.helper.UploadItem">
-		DELETE FROM item_file WHERE maemul_num=#{maemul_num}
-	</delete>
+   <delete id="deleteItem"
+   parameterType="kr.co.semo.helper.UploadItem">
+      DELETE FROM item_file WHERE maemul_num =#{maemul_num}
+   </delete>
            
   </mapper>

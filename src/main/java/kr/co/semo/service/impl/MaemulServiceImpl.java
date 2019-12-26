@@ -40,7 +40,7 @@ public class MaemulServiceImpl implements MaemulService{
     
     @Override
     public List<Maemul> getMaemulItem_Co(Maemul input) throws Exception {
-    	List<Maemul> result = null;
+       List<Maemul> result = null;
 
         try {
             result = sqlSession.selectList("MaemulMapper.selectItem_Co", input);
@@ -100,8 +100,7 @@ public class MaemulServiceImpl implements MaemulService{
       }
       return output;
    }
-    
-    
+        
 
     @Override
     public int getMaemulCount(Maemul input) throws Exception {
@@ -179,6 +178,13 @@ public class MaemulServiceImpl implements MaemulService{
 
         return result;
     }
+    
+    @Override
+   public List<Maemul> getMaemulManage(Maemul input){
+      List<Maemul> result = null;
+      result = sqlSession.selectList("MaemulMapper.selectList", input);
+      return result;
+   }
 
    
 

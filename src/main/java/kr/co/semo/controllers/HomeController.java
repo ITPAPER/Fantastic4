@@ -113,11 +113,11 @@ public class HomeController {
 	}
 	
 	// Maemul.manage 페이지
-	@RequestMapping(value = "Maemul.manage.do")
-	public String maemulManage(Locale locale, Model model) {
-		
-		return "Maemul.manage";
-	}
+	   @RequestMapping(value = "Maemul.manage.do")
+	   public String maemulManage(Locale locale, Model model) {
+	      
+	      return "Maemul.manage";
+	   }
 	
 	// Register_change 페이지
 	@RequestMapping(value = "Register_change.do")

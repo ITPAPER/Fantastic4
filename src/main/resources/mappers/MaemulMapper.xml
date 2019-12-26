@@ -63,7 +63,38 @@
         SELECT maemul_num, item_addrst, item_addrnd, select_type, build_name, floor, all_floor, all_width, pri_width,
         heating, toilet, comple_year, movein, title, content, hidden, parking, elv, select_sale, monthly, warrenty,
         sale, pre_war, pre_month, manage_ex, premium, latitude, longitude, co_num
-        FROM maemul_register 
+        FROM maemul_register
+        
+        <where>
+           <if test="co_num != null and co_num != ''">
+              co_num = #{co_num}
+           </if>
+           
+           <if test="maemul_num != null and maemul_num != '' and maemul_num != 0">
+              AND maemul_num = #{maemul_num}
+           </if>
+        </where>
+        
+        <if test="listCount > 0">
+           LIMIT #{offset}, #{listCount}
+        </if>
+     </select>
+     
+     <!-- 조건에 맞는 데이터수를 리턴한다. -->
+     <select id="selectCountAll"
+     parameterType="kr.co.semo.model.Maemul"
+     resultType="int">
+        SELECT COUNT(*) FROM maemul_register
+   
+        <where>
+           <if test="co_num != null and co_num != ''">
+              co_num = #{co_num}
+           </if>
+           
+           <if test="maemul_num != null and maemul_num != '' and maemul_num != 0">
+              AND maemul_num = #{maemul_num}
+           </if>
+        </where>
      </select>
      
      <!--  다중행 조회를 위한 기능 정의(Main)-->
@@ -93,10 +124,35 @@
          )            
      </insert>
      
-     <!-- 매물 삭제 -->
-	<delete id="deleteItem"
-		parameterType="kr.co.semo.model.Maemul">
-		DELETE FROM maemul_register WHERE co_num=#{co_num}
-	</delete>
+     <!-- 매물 갱신 -->
+     <update id="updateItem"
+     parameterType="kr.co.semo.model.Maemul">
+        UPDATE maemul_register SET
+           item_addrst = #{item_addrst}, item_addrnd = #{item_addrnd}, select_type = #{select_type}, build_name=#{build_name}, 
+           floor = #{floor}, all_floor = #{all_floor}, all_width = #{all_width}, pri_width= #{pri_width}, heating= #{heating},
+           toilet = #{toilet}, comple_year= #{comple_year}, movein=#{movein}, title=#{title}, content=#{content}, hidden=#{hidden},
+           parking=#{parking}, elv=#{elv}, select_sale=#{select_sale}, monthly=#{monthly}, warrenty=#{warrenty}, sale=#{sale},
+           pre_war=#{pre_war}, pre_month=#{pre_month}, manage_ex=#{manage_ex}, premium=#{premium}, latitude=#{latitude}, 
+           longitude=#{longitude}, co_num=#{co_num} 
+        WHERE maemul_num = #{maemul_num}
            
+     </update>
+     
+     
+     
+     <!-- 매물 삭제 -->
+   <delete id="deleteItem"
+      parameterType="kr.co.semo.model.Maemul">
+      DELETE FROM maemul_register
+      
+      <where>
+         <if test="co_num != null and co_num != '' ">
+            co_num = #{co_num}
+         </if>
+         <if test="maemul_num != null and maemul_num != '' ">
+            maemul_num = #{maemul_num}
+         </if>
+      </where>
+   </delete>
+   
   </mapper>

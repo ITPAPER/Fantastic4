@@ -52,7 +52,7 @@ public class Ge_maemulInterest {
 			try {
 				response.setCharacterEncoding("UTF-8");
 				out = response.getWriter();
-				out.println("<script>alert('보신 매물이 없습니다.');  location.href='index.do';</script>");
+				out.println("<script>alert('최근 본 매물이 없습니다.');  location.href='index.do';</script>");
 			} catch (IOException e) {
 				e.getLocalizedMessage();
 			}

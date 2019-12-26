@@ -148,34 +148,35 @@
 {{#output}}
     {{#if monthly}}
         <div class="list-item" OnClick="window.open('${pageContext.request.contextPath}/view.ok?maemul_num={{maemul_num}}')" style="cursor: pointer;">
-      
-    <div class="image-container">
-        <div class="image" style="background-image: url(${pageContext.request.contextPath}/assets/upload{{File_path}});"></div>
-    </div>
-    <div class="price-container">
-        <div class="primary">
-            <span>월세</span> <span>{{warrenty}}/{{monthly}}</span>
-        </div>
-        <div class="premium">{{#if premium}}
-                             권리금{{premium}}만원 
-                             {{else}}
-                             권리금 없음 
-                             {{/if}}
-        </div>
-    </div>
-    <div class="detail-container">
-        <div class="location">{{item_addrst}}</div>
-        <div class="option">
-            <span>{{#Jiha}}
-                    {{floor}}
-                    {{else}}
-                    <h2>{{floor}}</h2>
-                    {{/Jiha}}</span><span>|</span><span>{{all_width}}평</span><span>|</span><span>
-                    {{#if manage_ex}}
-                        관리비{{manage_ex}}만
+          <div class="image-container">
+              <div class="image" style="background-image: url(${pageContext.request.contextPath}/assets/upload{{File_path}});"></div>
+          </div>
+       <div class="price-container">
+           <div class="primary">
+               <span>월세</span> <span>{{warrenty}}/{{monthly}}</span>
+           </div>
+           <div class="premium">
+            {{#if premium}}
+               권리금{{premium}}만원 
+              {{else}}
+                                    권리금 없음 
+              {{/if}}
+           </div>
+       </div>
+       <div class="detail-container">
+           <div class="location">{{item_addrst}}</div>
+           <div class="option">
+               <span>
+               {{#Jiha}}{{floor}}{{/Jiha}}
+            </span>
+            <span> | </span><span>{{all_width}}평</span><span> | </span>
+            <span>
+                   {{#if manage_ex}}
+                                             관리비{{manage_ex}}만
                         {{else}}
-                        관리금 없음
-                        {{/if}}</span>
+                                             관리금 없음
+                    {{/if}}
+            </span>
         </div>
         <div class="tag">
             {{#if parking}}
@@ -185,38 +186,43 @@
                 <span class="option-tag">엘리베이터</span>
             {{/if}}
         </div>
-    </div>
-</div>
+       </div>
+   </div>
 
-{{else}}
-<div class="list-item" OnClick="window.open('${pageContext.request.contextPath}/view.ok?maemul_num={{maemul_num}}')" style="cursor: pointer;">
-    <div class="image-container">
-        <div class="image" style="background-image: url(${pageContext.request.contextPath}/assets/upload{{File_path}});"></div>
-    </div>
-    <div class="price-container">
-        <div class="primary">
-            <span>매매</span> <span>{{sale}} 만원</span>
-        </div>
-        <div class="premium">{{#if premium}}
-                             권리금{{premium}}만원 
-                             {{else}}
-                             권리금 없음 
-                             {{/if}}
-        </div>
-    </div>
-    <div class="detail-container">
-        <div class="location">{{item_addrst}}</div>
-        <div class="option">
-            <span>{{#Jiha}}
-            {{floor}}
-            {{else}}
-            <h2>{{floor}}</h2>
-            {{/Jiha}}</span><span>|</span><span>{{all_width}}평</span><span>|</span><span>
-            {{#if manage_ex}}
-                관리비{{manage_ex}}만
+   {{else}}
+
+   <div class="list-item" OnClick="window.open('${pageContext.request.contextPath}/view.ok?maemul_num={{maemul_num}}')" style="cursor: pointer;">
+       <div class="image-container">
+           <div class="image" style="background-image: url(${pageContext.request.contextPath}/assets/upload{{File_path}});"></div>
+       </div>
+       <div class="price-container">
+           <div class="primary">
+               <span>매매</span> <span>{{sale}} 만원</span>
+           </div>
+           <div class="premium">
+            {{#if premium}}
+                                     권리금{{premium}}만원 
                 {{else}}
-                관리금 없음
-                {{/if}}</span>
+                                     권리금 없음 
+                {{/if}}
+           </div>
+       </div>
+       <div class="detail-container">
+           <div class="location">{{item_addrst}}</div>
+           <div class="option">
+               <span>
+               {{#Jiha}}
+                  {{floor}}
+                  {{/Jiha}}
+            </span>
+            <span> | </span><span>{{all_width}}평</span><span> | </span>
+         <span>
+               {{#if manage_ex}}
+                                      관리비{{manage_ex}}만
+               {{else}}
+                                      관리금 없음
+               {{/if}}
+         </span>
         </div>
         <div class="tag">
             {{#if parking}}
@@ -227,7 +233,7 @@
             {{/if}}
         </div>
     </div>
-</div>  
+   </div>  
     {{/if}}
 {{/output}}
    </script>
@@ -260,7 +266,6 @@
    
    // =========================================핸들바 조건문을 위한 핸들바핼퍼입니다.=========================================
    Handlebars.registerHelper('Jiha', function(options) {
-      console.log(this);
        if(this.floor == 300) {
           return "지하3층";
        } else if(this.floor == 200) {
@@ -318,50 +323,33 @@
                var content = position.maemul_num;
                return new kakao.maps.CustomOverlay({
                   position : new kakao.maps.LatLng(position.lat, position.lng, position.maemul_num),
+                  // 매물번호를 입력 
                   content :"" + content
                });
             });
          //console.log(data.positions);
          clusterer.setMinClusterSize(1);
          // 클러스터러에 마커들을 추가합니다
-         
          clusterer.addMarkers(markers);
 
    //======================================= 처음 셋업시 매물리스트를 뿌립니다. ======================================= 
          var item = markers;
-          
-         
-          var ga = [];
-          var Lon = [];
-          var TTest = new Array();
+   
+          var M_number = new Array();
           for(var i=0; i<item.length; i++) {
-             var cc = item[i].getPosition();
              //인덱스 지정해서 넣어야 함 
-             ga[i] = cc.Ga;
-             TTest[i] = item[i].getContent();
-             
-             var ha = cc.Ha;
-                                       
+             M_number[i] = item[i].getContent();
           }
-          // 중복값 제거 
-          /* $.each(ga,function(i,value){
-              if(Lon.indexOf(value) == -1 ) Lon.push(value);
-          }); */
-          
-             console.log(TTest + "악!");
-             //var hope = TTest;
              // Ajax 전송시 배열로 넘기면 data[]=&daa2[]=2 이런식으로감 그걸 방지하는 구문 
              $.ajaxSettings.traditional = true;
              $.ajax({
                  "url": "maemul",
                  "type": "get",
-                 //"data": {log : ja},
-                 "data": {log : TTest},
+                 "data": {M_number : M_number},
                  "dataType": "json",
+                 // 요청을 한개씩 주고받고 
                  "async" : false,
                  "success": function(data) {     
-                    
-                       console.log("리턴값" + data);                                     
                        var source = $("#maemul-list-tmpl").html();
                        var template = Handlebars.compile(source);
                        // 여기서 한뎁스 들어감 
@@ -382,10 +370,10 @@
       function center() {         
          $("#listdiv").empty();
          $(".maemulCount").empty();
-         var result = aaa();         
-         var result2 = bbb();
-         var result3 = ccc();
-         var result4 = ddd();
+         var result = Select_sale();         
+         var result2 = Salesrange();
+         var result3 = Monthrange();
+         var result4 = Arearange();
          var add =search_return();
          var item_addrst = add;
          var Fmin = result2[0];
@@ -394,11 +382,6 @@
          var Wmax = result3[1];
          var Amin = result4[0];
          var Amax = result4[1];
-         console.log("center가실행됩니다.");
-         console.log(result + "거래유형");
-         console.log(Fmin + "," + Fmax);
-         console.log(Wmin + "," + Wmax);
-         console.log(Amin + "," + Amax);
          $(".maemulCount").append("0");
          //${pageContext.request.contextPath}/
          $.get("Mjson",{select_sale : result, Fmin:Fmin, Fmax:Fmax, Wmin:Wmin, Wmax:Wmax,
@@ -413,12 +396,14 @@
                      content :"" + content                     
                   });
                });
+            // 클러스터 초기화 
             clusterer.clear(); 
             clusterer.setMinClusterSize(1);
             // 클러스터러에 마커들을 추가합니다
             clusterer.addMarkers(markers);            
          });
          
+         // 필터링 작동시 리스트란에 이미지 추가 
          $("#listdiv").html("<img src='${pageContext.request.contextPath}/assets/img/Etest.jpg' style='width: 100%; height:100%;'>");
          $(".maemulList").scrollTop(100);
       }
@@ -428,42 +413,25 @@
        // 이벤트 헨들러로 cluster 객체가 넘어오지 않을 수도 있습니다
       // ==========================================마커 클러스터 클릭시 활성화==========================================
        kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {          
-          // 한번 삭제 
+          // 리스트란  초기화  
           $("#listdiv").empty();
-          
           var item = cluster.getMarkers();
-          
-          var ga = [];
-          var Lon = [];
-          var TTest = new Array();
-          //var TTest = [];
+          var M_number = new Array();
           for(var i=0; i<item.length; i++) {                       
-             var cc = item[i].getPosition();
-             //인덱스 지정해서 넣어야 함 
-             ga[i] = cc.Ga;
-             TTest[i] = item[i].getContent();
-             var ha = cc.Ha;
-          }
-          // 중복값 제거 
-          /* $.each(ga,function(i,value){
-              if(Lon.indexOf(value) == -1 ) Lon.push(value);
-          }); */
-             
+            M_number[i] = item[i].getContent();
+          }          
              $.ajaxSettings.traditional = true;
              $.ajax({
                  "url": "maemul",
                  "type": "get",
-                 //"data": {log : ja},
-                 "data": {log : TTest},
+                 "data": {M_number : M_number},
                  "dataType": "json",
                  "async" : false,
                  "success": function(data) {                 
-                       console.log("리턴값" + data);                                     
                        var source = $("#maemul-list-tmpl").html();
                        var template = Handlebars.compile(source);
                        // 여기서 한뎁스 들어감 
                        var result = template(data);
-
                        $("#listdiv").append(result);
                        //매물개수
                        var maemulCount = $('.list-item').length;
@@ -483,6 +451,8 @@
     // =============================================================================================================      
 
       //KAKAO API javaxcript END
+      
+      <!-- 메인의 광고이미지 기능 구현입니다. -->
       var imgtest = [];
       imgtest[0] =  '<a href="http://www.hillstate.co.kr" target="_blank"><img src="${pageContext.request.contextPath}/assets/img/HS.jpg"></a>'
       imgtest[1] =  '<a href="https://www.kiwoom.com" target="_blank"><img src="${pageContext.request.contextPath}/assets/img/KM.jpg"></a>'
@@ -490,21 +460,25 @@
       imgtest[3] =  '<a href="https://www.nexon.com/Home/Game" target="_blank"><img src="${pageContext.request.contextPath}/assets/img/NS.jpg"></a>'
       imgtest[4] =  '<a href="https://www.prugio.com" target="_blank"><img src="${pageContext.request.contextPath}/assets/img/PG.png"></a>'
       
-       var randomNum = function(min, max) {
+     // 난수생성을 위한 기능구현 
+      var randomNum = function(min, max) {
          var ranNum = Math.floor(Math.random()*(max-min+1)) + min;
          return ranNum;
       }
       
+      // 5초에 한번씩 실행 
       setInterval(onchange, 5000);
        
       function onchange() {
+        // 광고입력란 초기화 
          $('.pageCount').empty();
          var ranNum = randomNum(0, 4);
          var dumi = imgtest[ranNum];
-         console.log(ranNum + "뷁!");
          var gigi = $('.pageCount').append(dumi);
-         console.log("onchange실행");
+         $('.pageCount a').find('img').attr('style', 'width:100%; height:80px;');
       } 
+      <!-- //메인의 광고이미지 기능 구현입니다.(END) -->
+      
       $(function() {
          //icheck plugin적용
          $(".ichecked").iCheck({
@@ -513,58 +487,54 @@
          });
          s_type();
          search();
-         
       });
-      function aaa(e) {         
+      function Select_sale(e) {         
             var select_sale = $("input[name='salestype']:checked").val();            
             return select_sale;
       }
-      function bbb(e) {
-         var b = salesrange.noUiSlider.get();
-         var c = new Array();
-          for(var l=0; l<b.length; l++) {
-             var jum = b[l].indexOf(".");
-             c[l] = b[l].substring(0, jum);
+      function Salesrange(e) {
+         var Salesrange = salesrange.noUiSlider.get();
+         var result = new Array();
+          for(var l=0; l<Salesrange.length; l++) {
+             var jum = Salesrange[l].indexOf(".");
+             result[l] = Salesrange[l].substring(0, jum);
           }
           
-         return c;
+         return result;
       }
-      function ccc(e) {
-         var b = monthrange.noUiSlider.get();
-         var c = new Array();
-         for(var k = 0; k<b.length; k++) {
-            var jum = b[k].indexOf(".");
-            c[k] = b[k].substring(0, jum);
+      function Monthrange(e) {
+         var Monthrange = monthrange.noUiSlider.get();
+         var result = new Array();
+         for(var k = 0; k<Monthrange.length; k++) {
+            var jum = Monthrange[k].indexOf(".");
+            result[k] = Monthrange[k].substring(0, jum);
          }
-         return c;
+         return result;
       }
-      function ddd(e) {
-         var b = arearange.noUiSlider.get();
-         var c = new Array();
+      function Arearange(e) {
+         var Arearange = arearange.noUiSlider.get();
+         var result = new Array();
          var jum;
-         for(var k = 0; k<b.length; k++) {
-            jum = b[k].indexOf(".");
-            c[k]  = b[k].substring(0, jum);
+         for(var k = 0; k<Arearange.length; k++) {
+            jum = Arearange[k].indexOf(".");
+            result[k]  = Arearange[k].substring(0, jum);
          }
-         return c;
+         return result;
       }
       function s_type() {
          $('.ichecked').on('ifChecked', function(event) {
             select_sale = $(this).val();
-            console.log(select_sale + "클릭됨");
             return center();
          });         
       }
       function search() {
          $('.searchB').click(function() {
             var add = $('#add_search').val();
-            console.log(add);
             return center();
          });
       }
       function search_return() {
           add = $('#add_search').val();
-          console.log("search1라구!");
          return add;
       }
       
@@ -572,8 +542,7 @@
       $('.dropdown-menu').click(function(e) {
          e.stopPropagation();
       })
-      //$(".dropdown-toggle").dropdown();
-
+      
       /********************* 보증금 noUIslider **********************/
       var salesrange = document.getElementById('salesrange');
       noUiSlider.create(salesrange, {
@@ -612,18 +581,9 @@
          
       });
       $(".noUi-touch-area").mouseup(function() {
-          /* for(var k=0; k<values.length; k++) {
-               var first = values[k].indexOf(".");
-               test[k] = values[k].substring(0, first);      
-               } */
             console.log(salesrange.noUiSlider.get());
-            center();
-           
+            center();           
       }); 
-      
-      /* $(".noUi-handle-lower").mouseup(function() {
-         console.log(values + "down");
-      }); */
       
       /********************* 월세 noUIslider **********************/
       var monthrange = document.getElementById('monthrange');
@@ -690,7 +650,6 @@
          }
       });
       $(".noUi-touch-area").mouseup(function() {
-         console.log(arearange.noUiSlider.get());
          center();
       });
       

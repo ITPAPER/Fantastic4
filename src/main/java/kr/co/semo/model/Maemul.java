@@ -62,8 +62,11 @@ public class Maemul {
       private double longitude;
       // 중개사 회원 번호 
       private int co_num;
-      //
+      // 이미지 이름 
       private String File_path;
+      
+      // 등록일(매물관리)
+      private String reg_date;
       
       /** 페이지 구현을 위한 static 변수  */
       /** LiMIT 절에서 사용할 조회 시작 위치 */

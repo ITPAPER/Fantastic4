@@ -44,7 +44,7 @@
 								id="password" name="userPw" placeholder="패스워드" required/>
 						</div>
 						<div class="forgot-pw1">
-							<input type="checkbox" />&nbsp;자동 로그인 <span> <a href="Pw_change.do"
+							<input type="checkbox" /> &nbsp;자동 로그인 <span> <a href="Pw_change.do"
 								style="text-decoration: none">비밀번호 찾기</a>
 							</span>
 						</div>

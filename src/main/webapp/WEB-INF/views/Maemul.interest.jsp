@@ -120,8 +120,8 @@
 					console.log(result);
 				}
 			});
-			alert("보신 매물이 삭제되었습니다.");
-			location.reload();
+			alert("최근 본 매물이 삭제되었습니다.");
+			location.replace("index.do");
 		});
 		var heartDelAll = $('#heartItem .delAll');
 		heartDelAll.on('click', function() {

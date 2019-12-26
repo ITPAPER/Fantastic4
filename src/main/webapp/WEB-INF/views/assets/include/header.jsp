@@ -58,7 +58,7 @@
 						<a href="#" class="navbar-link" style="text-decoration: none">${userName}</a>
 					</p>
 					<p class="navbar-text navbar-right">
-						<a href="Maemul.manage.do" class="navbar-link"
+						<a href="maemul_manage_do" class="navbar-link"
 							style="tex1t-decoration: none">매물관리</a>
 					</p>
 					<p class="navbar-text navbar-right">
