@@ -7,26 +7,67 @@
       }
       
 /** 표 넣을 박스 정리 */
-#box1, .box2, .box3, .box4{
+#box1, #box2, #box3, #box4{
    text-align: center;
    background-color: #FFF;
    width: 90%; 
-     height: 500px;
-     margin: auto;
+    height: 700px;
+    margin: auto;
+   border-bottom: 1px solid #D5D5D5;
 }
 
+.container {
+	min-height:3500px;
+}
+
+#box3 img, #box4 img {
+	width: 100%;
+	height:100%;
+}
+
+/**title css*/
 #market {
    font-size: 24px;
    font-weight:bold;
     padding: 20px;
+    padding-top:50px;
     text-align: center;
 }
 /**box css*/
 .page01 h4 {
     margin-left: 60px;
     margin-bottom: 10px;
+    padding-top: 20px;
+    font-weight:bold;
 }
 
-.container {
-   min-height: 2200px;
+.page01{
+	background-color: #FFF;
+	border:1px solid #D5D5D5;
+	border-radius: 4px;
+}
+
+h2 {
+	color: #FF007F;
+	display: inline-block;
+	font-weight: bold;
+}
+
+h3 {
+	display:inline-block;
+	font-weight: bold;
+}
+h6 {
+	display:inline-block;
+	font-weight:bold;
+	color:#BDBDBD;
+	padding-left: 380px;
+}
+
+.font1 {
+	padding-left: 60px;
+}
+
+.fontsty h6 {
+	padding-left:500px;
 }

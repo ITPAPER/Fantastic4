@@ -31,6 +31,7 @@ import kr.co.semo.helper.WebHelper;
 import kr.co.semo.helper.RetrofitHelper;
 import kr.co.semo.model.Co_member;
 import kr.co.semo.model.GraphData;
+import kr.co.semo.model.GraphData2;
 import kr.co.semo.model.Kakao;
 import kr.co.semo.model.Maemul;
 import kr.co.semo.model.Kakao.Documents;
@@ -831,22 +832,31 @@ public class maemulController {
 	   }
 	   
 	   @RequestMapping(value = "/bigdata.do", method = RequestMethod.GET)
-		public ModelAndView test(Model model) {
+		public ModelAndView bigdata(Model model) {
 			//String Url="workspace/semoproject/src/main/webapp/views/assets/data/oneperson.csv";
 			//String Url = D: + "/views/assets/data/oneperson.csv";
 		   
 			String Url = "D:/workspace/semoproject/Fantastic4/src/main/webapp/WEB-INF/views/assets/data/oneperson.csv";
+			String Url2 = "D:/workspace/semoproject/Fantastic4/src/main/webapp/WEB-INF/views/assets/data/dangersignal.csv";
 		
 			List<GraphData> graphList = new ArrayList<GraphData>();
+			List<GraphData2> index2 = new ArrayList<GraphData2>();
+			
 			String Test = fileHelper.readString(Url, "utf-8");
-			if (Test == null) {
+			String index1 = fileHelper.readString(Url2, "euc-kr");
+			
+			if (Test == null && index1 == null) {
 				System.out.println("실패!");
 			}
 			String[] data = Test.split("\n");
+			String[] data2 = index1.split("\n");
 			String[] castle_list = null;
 			String[] man_list = null;
 			String[] woman_list = null;
+			
 			Gson gson = new Gson();
+			
+			
 			for(int i=0; i<data.length; i++) {
 				String line_String = data[i].trim();
 				
@@ -868,9 +878,22 @@ public class maemulController {
 				  graphList.add(j,graph);
 				 
 			}
-			
+			for(int i=0; i<data2.length; i++) {
+				GraphData2 graphdata = new GraphData2();
+				String park = data2[i].trim();
+				String[] harin = park.split(",");
+				graphdata.setCity(harin[0]);
+				graphdata.setIndex9(harin[1]);
+				graphdata.setIndex10(harin[2]);
+				graphdata.setIndex11(harin[3]);
+				graphdata.setIndex12(harin[4]);
+				index2.add(graphdata);
+			}
 			String json = gson.toJson(graphList);
+			String json2 =gson.toJson(index2);
+			System.out.println(json2);
 			model.addAttribute("Json", json);
+			model.addAttribute("Json2", json2);
 			return new ModelAndView("Bigdata");
 		}
 
