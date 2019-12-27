@@ -1,5 +1,6 @@
 package kr.co.semo.controllers;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.sun.mail.iap.Response;
 
 import kr.co.semo.helper.DownloadHelper;
+import kr.co.semo.helper.FileHelper;
 import kr.co.semo.helper.PageData;
 import kr.co.semo.helper.RegexHelper;
 import kr.co.semo.helper.TimeHelper;
@@ -27,6 +30,7 @@ import kr.co.semo.helper.UploadItem;
 import kr.co.semo.helper.WebHelper;
 import kr.co.semo.helper.RetrofitHelper;
 import kr.co.semo.model.Co_member;
+import kr.co.semo.model.GraphData;
 import kr.co.semo.model.Kakao;
 import kr.co.semo.model.Maemul;
 import kr.co.semo.model.Kakao.Documents;
@@ -68,6 +72,9 @@ public class maemulController {
 	/** 실행된 시간을 저장하기 위한 변수 */
 	@Autowired
 	TimeHelper timeHelper;
+	/** csv 파일을 읽어오기 위한 헬퍼 */
+	@Autowired
+	FileHelper fileHelper;
 
 	@RequestMapping(value = "/view.ok", method = RequestMethod.GET)
 	public ModelAndView view_ok(Model model, HttpServletResponse response,
@@ -126,9 +133,7 @@ public class maemulController {
 				}
 			}
 			System.out.println(cook_maemulNum + " ooooooooooooooooo " + maemulNum + " oooooooooooooooooooooooo");
-		}
-		
-		
+		}				
 
 		// 조회할 매물에 대한 PK값
 		if (maemul_num == 0) {
@@ -160,8 +165,7 @@ public class maemulController {
 			return webHelper.redirect(null, e.getLocalizedMessage());
 		}
 		System.out.println(fileoutput + "입니다.");
-
-		System.out.println("###########################" + output.getCo_num() + "###########################");
+		
 		
 		// 중개사 회원 정보 출력을 위한 비즈 생성
 		Co_member coInput = new Co_member();
@@ -753,12 +757,21 @@ public class maemulController {
 
 	      try {
 	         // 데이터 갱신
-
 	         maemulService.editMaemul(input);
 	         
 	         // 해당 매물의 이미지 모두를 삭제한다. 
 	         UploadItem Fileitem = new UploadItem();
+	         List<UploadItem> output = null;
+	         
 	         Fileitem.setMaemul_num(maemul_num);
+	         output = maemulFileService.getFileItem(Fileitem);
+	         
+	         for(int i=0; i<output.size(); i++) {
+	        	 File f2 = new File(output.get(i).getFile_dir() + output.get(i).getFilePath());
+	        	 boolean upgrade_ok = f2.delete();
+	        	 System.out.println("수정성공여부" + upgrade_ok);
+	         }
+	         
 	         maemulFileService.deleteMaemulFile(Fileitem);
 	         
 	         // 새로 받은 이미지를 저장한다. 
@@ -788,6 +801,7 @@ public class maemulController {
 	   public ModelAndView deleteMaemul(Model model) {
 	      Maemul input = new Maemul();
 	      UploadItem Uinput = new UploadItem();
+	      List<UploadItem> output = null;
 	      int maemul_num = webHelper.getInt("maemul_num");
 	      // 매물
 	      input.setMaemul_num(maemul_num);
@@ -795,7 +809,15 @@ public class maemulController {
 	      Uinput.setMaemul_num(maemul_num);
 	      
 	      try {
+	    	 output = maemulFileService.getFileItem(Uinput);
+	    	 // upload 폴더에 저장된 이미지 파일 삭제 
+	    	 for(int i=0; i<output.size(); i++) {
+	    		 File f1 = new File(output.get(i).getFile_dir() + output.get(i).getFilePath());
+	    		 boolean del_ok = f1.delete();
+	    		 System.out.println("삭제성공여부" + del_ok);		     
+	    	 }
 	         maemulFileService.deleteMaemulFile(Uinput);
+	         
 	         try {
 	            maemulService.deleteMaemul(input);
 	         } catch(Exception e) {
@@ -804,10 +826,52 @@ public class maemulController {
 	      }catch(Exception e) {
 	         return webHelper.redirect(null, "매물삭제에 실패했습니다.");
 	      }
-	      
 	      String redirectUrl = ContextPath + "/maemul_manage_do";
 	      return webHelper.redirect(redirectUrl, "매물이 삭제되었습니다.");
 	   }
-	
-	
+	   
+	   @RequestMapping(value = "/bigdata.do", method = RequestMethod.GET)
+		public ModelAndView test(Model model) {
+			//String Url="workspace/semoproject/src/main/webapp/views/assets/data/oneperson.csv";
+			//String Url = D: + "/views/assets/data/oneperson.csv";
+		   
+			String Url = "D:/workspace/semoproject/Fantastic4/src/main/webapp/WEB-INF/views/assets/data/oneperson.csv";
+		
+			List<GraphData> graphList = new ArrayList<GraphData>();
+			String Test = fileHelper.readString(Url, "utf-8");
+			if (Test == null) {
+				System.out.println("실패!");
+			}
+			String[] data = Test.split("\n");
+			String[] castle_list = null;
+			String[] man_list = null;
+			String[] woman_list = null;
+			Gson gson = new Gson();
+			for(int i=0; i<data.length; i++) {
+				String line_String = data[i].trim();
+				
+				String[] line_data = line_String.split(",");
+				if(i == 0) {
+					 castle_list = line_data;
+				} else if(i ==1) {
+					 man_list = line_data;
+				} else {
+					 woman_list = line_data;
+				}
+			}
+			for (int j = 0; j<castle_list.length; j++) {
+				GraphData graph = new GraphData();
+				  graph.setCastle(castle_list[j].trim());
+				  graph.setMan(man_list[j].trim());
+				  graph.setWoman(woman_list[j].trim());
+				  
+				  graphList.add(j,graph);
+				 
+			}
+			
+			String json = gson.toJson(graphList);
+			model.addAttribute("Json", json);
+			return new ModelAndView("Bigdata");
+		}
+
 }

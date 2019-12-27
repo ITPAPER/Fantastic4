@@ -2,102 +2,31 @@
 
 /** 전체페이지 */
 
-		.main-space {
-			background-color: #fff;
-		}
-
-
-/** 목록 정의 초기화 */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            width: 20%;
-            display: inline-block;
-            text-align: center;
-        }
-
-        li a {
-            /** 링크의 박스화 --> 하나의 목록 안을 전체 클릭 가능하게 한다. */
-            display: block;
-            padding: 10px 15px;
-            width: auto;
-            /** li에게 border를 지정할 경우 li의 총 넓이 합이 100%를 초과하므로,
-             *  레이아웃이 깨지게 된다.
-             *  링크는 width가 auto이므로, border를 주어도 전체 크기에 영향이 없다. */
-            border-left: 1px dotted #cccccc;
-        }
-
-        li:first-child a {
-            border-left: 0;
-        }
-
-        li legend:hover {
-            text-decoration: underline;
-        }
-
-
+      .main-space {
+         background-color: #eee;
+      }
+      
 /** 표 넣을 박스 정리 */
-.box1{
-	text-align: center;
-	background-color: #eee;
-	width: 90%; 
-  	height: 300px;
-  	margin: auto;
+#box1, .box2, .box3, .box4{
+   text-align: center;
+   background-color: #FFF;
+   width: 90%; 
+     height: 500px;
+     margin: auto;
 }
 
-.box2{
-	text-align: center;
-	background-color: #eee;
-	width: 90%; 
-  	height: 300px;
-  	margin: auto;
+#market {
+   font-size: 24px;
+   font-weight:bold;
+    padding: 20px;
+    text-align: center;
+}
+/**box css*/
+.page01 h4 {
+    margin-left: 60px;
+    margin-bottom: 10px;
 }
 
-.box3{
-	text-align: center;
-	background-color: #eee;
-	width: 80%; 
-  	height: 300px;
-  	margin: auto;
-}
-
-.box4{
-	text-align: center;
-	background-color: #eee;
-	width: 80%; 
-  	height: 300px;
-  	margin: auto;
-}
-
-.box5{
-	text-align: center;
-	background-color: #eee;
-	width: 80%; 
-  	height: 300px;
-  	margin: auto;
-}
-
-.box6{
-	text-align: center;
-	background-color: #eee;
-	width: 80%; 
-  	height: 450px;
-  	margin: auto;
-}
-
-.box7{
-	text-align: center;
-	background-color: #eee;
-	width: 80%; 
-  	height: 450px;
-  	margin: auto;
-}
-
-/** 테이블 관련 */
-table{
-	width: 100%;
+.container {
+   min-height: 2200px;
 }

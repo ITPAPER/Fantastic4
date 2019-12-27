@@ -112,104 +112,120 @@ html, body {
         <!-- 컨텐츠 -->
         <div class="content">
             <div class="body-content">
-                <div class="main-space">
-
-                		
-                		<div class="commercialArea">
-                		<hr >	
-                        <ul>
-                        	<li> <h4 id="market" onclick="page02()">상권 개요</h4> </li>
-                        	<li> <h4 id="customer" onclick="page01()">고객 분석 및 업종 분석</h4> </li>
-                        </ul>
-                        <hr size="10px">
+                <div class="main-space">          
+                     <div class="commercialArea">                          
+                        <h4 id="market">상권 개요</h4>
                         </div>
-                     
-
                     <div class="container">
-
                         <div class="main-content">
-                        <div class="page01" role="form" id="result01" style="display: block;">
-                                
-                                <table>
-                                	<tr>
-                                		<td>
-                                <h4 style="margin-left:80px;">상권현황</h4>
-                                <div class="box1"></div>
-                                		</td>
-                                	</tr>
-                                	<tr>
-                                		<td>
-                                <h4 style="margin-left:80px; margin-top: 60px;">작년동기 대비 총 매출액</h4>
+                        <div class="page01" role="form" id="result01" style="display: block;">                               
+                                <h4>1인가구</h4>
+                                <div id="box1"></div>                                                                            
+                                <h4>서울시 자치구별 인구수</h4>
                                 <div class="box2"></div>  
-                                		</td>
-                                	</tr>
-                                </table>
-                                <div style="height:50px; width:50px;"></div>
-
-                            </div>
-                            <!-- form 박스 - 1  -->
-                            <div  class="page02" role="form" id="result02" style="display: none;">
-
-                            	<table>
-                                	<tr>
-                                		<td>
-                                <h4 style="margin-left:80px;">요일별</h4>
-                                <div class="box3"></div>
-
-                                <h4 style="margin-left:80px;">시간대별</h4>
+                                <h4>서울시 직종별 사업체수</h4>
+                                <div class="box3"></div>    
+                                <h4>2019년 소비자 물가지수</h4>
                                 <div class="box4"></div>
-
-                                <h4 style="margin-left:80px;">성/연령별</h4>
-                                <div class="box5"></div>
-                                		</td>
-
-                                		<td>
-                                <h4 style="margin-left:80px;">매출 현황</h4>
-                                <div class="box6"></div>
-
-                                <h4 style="margin-left:80px;">업종 지수</h4>
-                                <div class="box7"></div>
-                                		</td>
-                                	</tr>
-                                </table>
-                                <div style="height:50px; width:50px;"></div>
                             </div>
-                            <!-- form 박스 - 2  -->
-                        
                         </div>
                     </div>
-                    <!-- end container -->
-                
-            	</div>
-        	</div>
+                    <!-- end container -->              
+               </div>
+           </div>
             <!-- Footer -->
             <div class="footer"></div>
             <!-- Footer END -->
         </div>
-        <!-- end content -->
+       	<!-- end content -->
         <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://www.amcharts.com/lib/4/core.js"></script>
+        <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+        <script src="https://www.amcharts.com/lib/4/geodata/usaAlbersLow.js"></script>
+        <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://www.amcharts.com/lib/4/core.js"></script>
+        <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+        <script src="https://www.amcharts.com/lib/4/geodata/usaAlbersLow.js"></script>
+        <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
         <script type="text/javascript">
-            function page01() {
-                var rst = document.getElementById("result01");
-                if (rst.style.display == 'block') {
-                    rst.style.display = 'none';
-                }
-                var rst = document.getElementById("result02");
-                if (rst.style.display == 'none') {
-                    rst.style.display = 'block';
-                }
-            }
-            function page02() {
-                var rst = document.getElementById("result02");
-                if (rst.style.display == 'block') {
-                    rst.style.display = 'none';
-                }
-                var rst = document.getElementById("result01");
-                if (rst.style.display == 'none') {
-                    rst.style.display = 'block';
-                }
-            }
+        
+     	// Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var mainContainer = am4core.create("box1", am4core.Container);
+        mainContainer.width = am4core.percent(100);
+        mainContainer.height = am4core.percent(100);
+        mainContainer.layout = "horizontal";
+   
+        var usData=${Json};
+                
+
+        var maleChart = mainContainer.createChild(am4charts.XYChart);
+        maleChart.paddingRight = 0;
+        maleChart.data = JSON.parse(JSON.stringify(usData));
+
+        // Create axes
+        var maleCategoryAxis = maleChart.yAxes.push(new am4charts.CategoryAxis());
+        maleCategoryAxis.dataFields.category = "castle";
+        maleCategoryAxis.renderer.grid.template.location = 0;
+        //maleCategoryAxis.renderer.inversed = true;
+        maleCategoryAxis.renderer.minGridDistance = 15;
+
+        var maleValueAxis = maleChart.xAxes.push(new am4charts.ValueAxis());
+        maleValueAxis.renderer.inversed = true;
+        maleValueAxis.min = 0;
+        maleValueAxis.max = 20;
+        maleValueAxis.strictMinMax = true;
+
+        maleValueAxis.numberFormatter = new am4core.NumberFormatter();
+        maleValueAxis.numberFormatter.numberFormat = "#.#'%'";
+
+        // Create series
+        var maleSeries = maleChart.series.push(new am4charts.ColumnSeries());
+        maleSeries.dataFields.valueX = "man";
+        maleSeries.dataFields.valueXShow = "percent";
+        maleSeries.calculatePercent = true;
+        maleSeries.dataFields.categoryY = "castle";
+        maleSeries.interpolationDuration = 1000;
+        maleSeries.columns.template.tooltipText = "남자, 나이{categoryY}: {valueX} ({valueX.percent.formatNumber('#.0')}%)";
+        //maleSeries.sequencedInterpolation = true;
+
+
+        var femaleChart = mainContainer.createChild(am4charts.XYChart);
+        femaleChart.paddingLeft = 0;
+        femaleChart.data = JSON.parse(JSON.stringify(usData));
+
+        // Create axes
+        var femaleCategoryAxis = femaleChart.yAxes.push(new am4charts.CategoryAxis());
+        femaleCategoryAxis.renderer.opposite = true;
+        femaleCategoryAxis.dataFields.category = "castle";
+        femaleCategoryAxis.renderer.grid.template.location = 0;
+        femaleCategoryAxis.renderer.minGridDistance = 15;
+
+        var femaleValueAxis = femaleChart.xAxes.push(new am4charts.ValueAxis());
+        femaleValueAxis.min = 0;
+        femaleValueAxis.max = 20;
+        femaleValueAxis.strictMinMax = true;
+        femaleValueAxis.numberFormatter = new am4core.NumberFormatter();
+        femaleValueAxis.numberFormatter.numberFormat = "#.#'%'";
+        femaleValueAxis.renderer.minLabelPosition = 0.01;
+
+
+        // Create series
+        var femaleSeries = femaleChart.series.push(new am4charts.ColumnSeries());
+        femaleSeries.dataFields.valueX = "woman";
+        femaleSeries.dataFields.valueXShow = "percent";
+        femaleSeries.calculatePercent = true;
+        femaleSeries.fill = femaleChart.colors.getIndex(4);
+        femaleSeries.stroke = femaleSeries.fill;
+        //femaleSeries.sequencedInterpolation = true;
+        femaleSeries.columns.template.tooltipText = "여자, 나이{categoryY}: {valueX} ({valueX.percent.formatNumber('#.0')}%)";
+        femaleSeries.dataFields.categoryY = "castle";
+        femaleSeries.interpolationDuration = 1000;
         </script>
     </body>
 </html>

@@ -15,7 +15,7 @@
 				<a href="index.do" class="navbar-link" style="text-decoration: none">상가</a>
 			</p>
 			<p class="navbar-text navbar-left">
-				<a href="Bigdata.do" class="navbar-link"
+				<a href="bigdata.do" class="navbar-link"
 					style="text-decoration: none">상권분석</a>
 			</p>
 

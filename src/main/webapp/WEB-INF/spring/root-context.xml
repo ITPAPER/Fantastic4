@@ -73,6 +73,9 @@
 
     <!-- RetrofitHelper 주입 설정 -->
     <bean id="retrofitHelper" class="kr.co.semo.helper.RetrofitHelper" />
+    
+    <!--  FileHelper 주입설정 -->
+	<bean id="fileHelper" class="kr.co.semo.helper.FileHelper"/>
 
     <!-- 메일 발송에 필요한 정보를 저장하는 객체 정의 -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
