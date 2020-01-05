@@ -23,7 +23,7 @@ import net.coobird.thumbnailator.geometry.Positions;
 @Slf4j
 public class DownloadHelper {
     /** 업로드 된 결과물이 저장될 폴더 */
-    private String uploadDir  = "D:/workspace/semoproject/Fantastic4/src/main/webapp/WEB-INF/views/assets/upload";
+    private String uploadDir;
 
     public String getUploadDir() {
         return uploadDir;
@@ -42,13 +42,13 @@ public class DownloadHelper {
      */
     //public void download(HttpServletResponse response, String filePath, String originName) throws Exception {
     public void download(String filePath, String originName) throws Exception {
-        
+
         /** JSP 내장객체를 담고 있는 Spring의 객체를 통해서 내장객체 획득하기 */
         // --> import org.springframework.web.context.request.RequestContextHolder;
         // --> import org.springframework.web.context.request.ServletRequestAttributes;
-        ServletRequestAttributes requestAttr 
+        ServletRequestAttributes requestAttr
                 = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        
+
         // JSP 내장객체 참조하기 --> getInstance()에 전달된 객체를 받는다.
         HttpServletResponse response = requestAttr.getResponse();
 

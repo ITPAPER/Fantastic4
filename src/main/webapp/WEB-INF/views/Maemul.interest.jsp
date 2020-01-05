@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
-	
+
 %>
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@
 				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li role="presentation" class="active"><a href="#interItem"
 						role="tab" data-toggle="tab" aria-contols="interItem">최근 본 매물</a></li>
-						<!-- 
+						<!--
 					<li role="presentation"><a href="#heartItem" role="tab"
 						data-toggle="tab" aria-contols="heartItem">찜한 매물</a></li> -->
 				</ul>
@@ -53,7 +53,7 @@
 							<a href="view.ok?maemul_num=${output.maemul_num}" target="_blank" class="article-card">
 								<div class="picture-container">
 									<div class="preview"
-										style="background-image: url(assets/upload/${fileName[status.index]});">
+										style="background-image: url(${pageContext.request.contextPath}/download.do?file=${fileName[status.index]});">
 									</div>
 								</div>
 								<div class="price-container">
@@ -74,7 +74,7 @@
 						</c:forEach>
 
 					</div>
-					
+
 					<!-- <div role="tabpanel" class="tab-pane fade" id="heartItem">
 						<div class="sub">
 							<span>찜한 매물</span><span class="heartcount" style="color: red;"></span><span>개</span>
@@ -85,7 +85,7 @@
 							업데이트예정
 						</div>
 					</div> -->
-					
+
 				</div>
 			</div>
 		</div>
@@ -100,9 +100,9 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 	<script	src="${pageContext.request.contextPath}/assets/plugins/ajax/ajax_helper.js"></script>
 	<script type="text/javascript">
-	
-		
-		
+
+
+
 		$(function() {
 			var maemulCount = $('#interItem .article-card').length;
 			$(".maemulcount").html(maemulCount);
@@ -110,7 +110,7 @@
 			var heartCount = $('#heartItem .article-card').length;
 			$(".heartcount").html(heartCount);
 		});
-	
+
 		$('#allcookieDel').on('click', function() {
 			$.ajax({
 				type : 'post',

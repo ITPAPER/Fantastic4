@@ -12,9 +12,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>중개사 회원정보 수정</title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets//bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" />
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets//css/Admin_infochange.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/Admin_infochange.css">
 
 
 
@@ -131,10 +131,10 @@
 															등록번호</span></th>
 													<td><input type="text" class="form-control sg-form-control-md" id="co_number"
 														name="co_number" style="width: 350px; height: 50px;" value="${co_UserInfo.broker_num}">
-														<a href="assets/upload${ceoImgfilepath}" download="중개사등록증">
+														<a href="${pageContext.request.contextPath}/download.do?file=${ceoImgfilepath}" download="중개사등록증">
 															<button type="button" class="download_Img btn btn-primary btn-lg" id="download_ceoImg"
 															style="width: 300px; height: 50px">
-															<!--<a href="assets/upload/15760390673420.jpg" download>-->중개사등록증 다운로드
+															<!--<a href="${pageContext.request.contextPath}/download.do?file=15760390673420.jpg" download>-->중개사등록증 다운로드
 															</button>
 														</a>
 													</td>
@@ -145,12 +145,12 @@
 													<td><input type="text"
 														class="form-control sg-form-control-md" id="coe_number"
 														name="coe_number" style="width: 350px; height: 50px;" value="${co_UserInfo.office_num}">
-														<a href="assets/upload${coImgfilepath}" download="사업자등록증">	
+														<a href="${pageContext.request.contextPath}/download.do?file=${coImgfilepath}" download="사업자등록증">
 															<button type="button" class="download_Img btn btn-primary btn-lg" id="download_coImg"
 															style="width: 300px; height: 50px">사업자등록증 다운로드</button>
-														<!-- 
+														<!--
 														<button type="button" class="btn btn-primary btn-lg" id="coe_image"
-														name="coe_image" style="display: none;" value ="사업자등록증 다운로드">ㄴㅁㅇㅁㅇㄴ</button> 
+														name="coe_image" style="display: none;" value ="사업자등록증 다운로드">ㄴㅁㅇㅁㅇㄴ</button>
 														</td> -->
 														</a>
 												</tr>
@@ -328,7 +328,7 @@
 													<th class="active"><span class="left-name">직급/직책</span></th>
 													<td><input class="form-control" id="position"
 														name="position" style="width: 350px; height: 50px;">
-													</td>	
+													</td>
 												</tr>
 												<tr>
 													<th class="active"><span class="left-name">이메일</span></th>
@@ -385,10 +385,10 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.min.js"></script>
 
 	<script type="text/javascript">
-		
+
 		var id = ${co_UserInfo.id};
 		console.log(id);
-		/*	
+		/*
 		//중개사 등록증 다운로드
 		$("#download_ceoImg").click(function(){
 			$.ajax({
@@ -401,9 +401,9 @@
 				success : function(data) {
 					console.log(data);
 				}
-			}); 
+			});
 		});
-		
+
 		//사업자 등록증 다운로드
 		$("#download_coImg").click(function(){
 			$.ajax({
@@ -416,7 +416,7 @@
 				success : function(data) {
 					console.log(data);
 				}
-			}); 
+			});
 		});
 		*/
 		$("#accept").click(function() {
@@ -431,9 +431,9 @@
 						alert("승인 되었습니다.");
 						location.href="Admin.do";
 					}
-				}); 
+				});
 		});
-		
+
 		 $("#delete").click(function() {
 			 $.ajax({
 					type : "POST",
@@ -446,28 +446,28 @@
 						alert("비승인 되었습니다.");
 						location.href="Admin.do";
 					}
-				}); 
-		}); 
-		
-		
+				});
+		});
+
+
 		//핸드폰 번호 형식 변경 xxx-xxxx-xxxx
 		var tel_num = "${co_UserInfo.tel_num}";
-		
+
 		var tel_num1 = tel_num.substring(0,3);
 		var tel_num2 = tel_num.substring(3,7);
 		var tel_num3 = tel_num.substring(7);
 		var full_telnum = tel_num1 + "-" + tel_num2 + "-" + tel_num3;
 		$("#phoneNumber1").val(full_telnum);
-		
+
 		//전화번호 형식 변경 xx-xxx-xxxx
 		var tel = "${co_UserInfo.tel}";
-		
+
 		var tel1 = tel.substring(0,2);
 		var tel2 = tel.substring(2,5);
 		var tel3 = tel.substring(5);
 		var full_tel = tel1 + "-" + tel2 + "-" + tel3;
 		$("#coe_Telephone1").val(full_tel);
-		
+
 		//position 문자열 변환
 		var position = "${co_UserInfo.position}"
 		if (position == "A"){
@@ -478,11 +478,11 @@
 			position = "중개보조원";
 		}
 		$("#position").val(position);
-		
-		
 
-		
-	
+
+
+
+
 	</script>
 
 </body>

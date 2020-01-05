@@ -25,10 +25,10 @@ public class Co_memberRestController {
 	@Autowired Member_fileService member_fileService;
 	@Value("#{servletContext.contextPath}")
 	String contextPath;
-	
+
 	@RequestMapping(value="/addCo_member", method=RequestMethod.POST)
 	private String adduser() throws IOException {
-	
+
 		try {
 			webHelper.upload();
 		} catch (Exception e) {
@@ -37,7 +37,7 @@ public class Co_memberRestController {
 		}
 
 		Map<String, String> paramMap = webHelper.getParamMap();
-		
+
 		//■■■■■■ 대표번호 조합 ■■■■■■■
 		String telResult = paramMap.get("tel").toString();
 		String[] telpiece = telResult.split(",");
@@ -49,7 +49,7 @@ public class Co_memberRestController {
 				telCombi += telpiece[i];
 			}
 		}
-		
+
 		//■■■■■■■■■■■■■ 핸드폰 번호 조합 ■■■■■■■■■■■■■■■■■■
 		String phoneResult = paramMap.get("phoneNum");
 		String[] phonePiece = phoneResult.split(",");
@@ -61,14 +61,14 @@ public class Co_memberRestController {
 				phoneCombi += phonePiece[i];
 			}
 		}
-		
+
 		//■■■■■■■■■■■■■ Email id 조합 ■■■■■■■■■■■■■■■■■■
 		String mailIdResult = paramMap.get("user_email");
 		String[] mailIdPiece = mailIdResult.split(",");
 		String mailIdCombi = null;
 		mailIdCombi = mailIdPiece[0] + "@" + mailIdPiece[1];
 		System.out.println(mailIdCombi);
-		
+
 		//■■■■■■■■■■■■■ Position 분류 ■■■■■■■■■■■■■■
 		String posi = paramMap.get("position2");
 		if (posi == "대표공인중개사") {
@@ -78,16 +78,16 @@ public class Co_memberRestController {
 		} else {
 			posi = "C";
 		}
-		
+
 		//■■■■■■■■■■■■■ 현재 시간 ■■■■■■■■■■■■■■
 		SimpleDateFormat nowTime = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
 		String now = nowTime.format (System.currentTimeMillis());
-		
+
 		List<UploadItem> fileList = webHelper.getFileList();
-		
+
 		//■■■■■■■■■■■■■■■■■■■■■■■■■■ 대표 사진 저장 파일 이름 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 		String broker_img = fileList.get(2).getFilePath();
-		
+
 		String co_name = paramMap.get("co_name");
 		String broker_num = paramMap.get("coe_number");
 		String office_num = paramMap.get("co_number");
@@ -102,11 +102,11 @@ public class Co_memberRestController {
 		String reg_date = now;
 		String recent_date = now;
 		String approval = "N";
-		
+
 		Co_member input = new Co_member();
 		input.setCo_name(co_name);
 		input.setBroker_num(broker_num);
-		input.setOffice_num(office_num);  
+		input.setOffice_num(office_num);
 		input.setOffice_addr(office_addr);
 		input.setTel_num(tel_num);
 		input.setBoss_name(boss_name);
@@ -119,18 +119,18 @@ public class Co_memberRestController {
 		input.setReg_date(reg_date);
 		input.setBroker_img(broker_img);
 		input.setRecent_date(recent_date);
-	
+
 		try {
 			co_memberService.addCo_member(input);
 		} catch (Exception e) {
 			System.out.println(e.getLocalizedMessage());
 		}
-		
-		
+
+
 		Member_file member_file = new Member_file();
-		
-		
-		String file_dir= "D:/workspace/semoproject/Fantastic4/src/main/webapp/WEB-INF/views/assets/upload";
+
+
+		String file_dir = webHelper.getUploadDir();
 		//■■■■■■■■■■■■■■■■■■■■■■■■ File type 중개사등록증, 사업자등록증 구분 ■■■■■■■■■■■■■■■■■■■■■■■■■
 		System.out.println(fileList.size());
 		for (int i = 0; i < fileList.size()-1; i++) {
@@ -153,12 +153,12 @@ public class Co_memberRestController {
 				e.getLocalizedMessage();
 			}
 		}
-		
-		
-		
+
+
+
 		/*
 		System.out.println("!11111111111111111111111111111111111111121jhfdcljsdhioj23459045948356243512354425345356466346");
-		
+
 		System.out.println(getfile.getName());
 		System.out.println(getfile.getSize());
 		System.out.println(getfile.getOriginalFilename());
@@ -166,7 +166,7 @@ public class Co_memberRestController {
 		System.out.println(data);
 		*/
 		/*
-		
+
 		Map<String, String> paramMap = webHelper.getParamMap();
 		String co_name = paramMap.get("co_name");
 		String broker_num = paramMap.get("broker_num");
@@ -187,7 +187,7 @@ public class Co_memberRestController {
 		Co_member input = new Co_member();
 		input.setCo_name(co_name);
 		input.setBroker_num(broker_num);
-		input.setOffice_num(office_num);  
+		input.setOffice_num(office_num);
 		input.setOffice_addr(office_addr);
 		input.setTel_num(tel_num);
 		input.setBoss_name(boss_name);
@@ -204,12 +204,12 @@ public class Co_memberRestController {
 		/*
 		List<UploadItem> fileList = webHelper.getFileList();
 		System.out.println(fileList);
-		
+
 		Map<String, Object> output = new HashMap<String, Object>();
 		output.put("item", input);
 		*/
 		/*
-		
+
 		*/
 		return "success";
 	}

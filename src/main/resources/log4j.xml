@@ -14,7 +14,7 @@
     <!-- 파일로 기록되는 로그 설정 -->
     <appender name="rollingFile" class="org.apache.log4j.RollingFileAppender">
         <!-- 로그 파일 생성위치 -->
-        <param name="file" value="자신의Workspace경로/web.log" />
+        <param name="file" value="/home/student/semoproject/log/web.log" />
         <param name="Append" value="true" />
         <!-- 로그 파일 하나당 사이즈 100m -->
         <param name="MaxFileSize" value="100mb" />
@@ -28,7 +28,7 @@
     <!-- 날짜별 에러 로그 생성 -->
     <appender name="errorFile" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="Threshold" value="ERROR" />
-        <param name="File" value="자신의workspace경로/log/error.log" />
+        <param name="File" value="/home/student/semoproject/log/error.log" />
         <param name="Append" value="true" />
         <param name="DatePattern" value="'.'yyMMdd" />
         <layout class="org.apache.log4j.PatternLayout">

@@ -99,7 +99,7 @@
 
 
 <!-- 상단 메뉴 바 -->
- <%@ include file="./assets/include/co_loginHeader.jsp" %>	
+ <%@ include file="./assets/include/co_loginHeader.jsp" %>
 <!-- 상단 메뉴바 end -->
 
 <!-- 컨텐츠 -->
@@ -121,7 +121,7 @@
 											<tr>
 												<th class="active"><span class="left-name">중개사무소명</span></th>
 												<td>
-													
+
 													<input type="text" class="form-control"	id="co_name" name="co_name" style="width: 350px; height: 50px;" value="${userinfo.co_name}">
 												</td>
 											</tr>
@@ -148,7 +148,7 @@
 												</td>
 											</tr>
 											<tr>
-												<th class="active"><span class="left-name" >중개사무소 주소</span>	
+												<th class="active"><span class="left-name" >중개사무소 주소</span>
 												</th>
 												<td>
 													<div id="kakaomap">
@@ -207,7 +207,7 @@
 															                    }
 															                    // 조합된 참고항목을 해당 필드에 넣는다.
 															                    document.getElementById("sample2_extraAddress").value = extraAddr;
-															                
+
 															                } else {
 															                    document.getElementById("sample2_extraAddress").value = '';
 															                }
@@ -274,13 +274,13 @@
 											<tr>
 												<th class="active"><span class="left-name">대표 사진</span></th>
 												<td>
-													<img id="preview" src="assets/upload${userinfo.broker_img}" class="coe_image" alt="이미지 로드후 미리보기 보여질 영역">
+													<img id="preview" src="${pageContext.request.contextPath}/download.do?file=${userinfo.broker_img}" class="coe_image" alt="이미지 로드후 미리보기 보여질 영역">
 													<input type="file" class="form-control" id="best_image" name="best_image" accept="image/*" style="display: none;">
 													<label for="best_image" class="label_best_image">
 														<span class="btn btn-info btn-lg" style="position: relative; bottom: 175px;">사진 변경</span>
 													</label>
 												</td>
-											</tr>	
+											</tr>
 										</tbody>
 									</table>
 								</li>
@@ -310,7 +310,7 @@
 												<td>
 													<div class="set_email">
 														<input type="text" value="${userinfo.email_id}" class="form-control" id="set_email01" name="set_email01" style="width: 175px; height: 50px;" disabled>
-													</div> <!-- set_email -->													
+													</div> <!-- set_email -->
 												</td>
 											</tr>
 											<tr>
@@ -342,16 +342,16 @@
 															<input type="text" class="form-control" id="phoneNumber3" name="phoneNum" style="width: 80px; height: 50px;" maxlength="4" value="${numCombi[2]}">
 													</div>
 												</td>
-											</tr>								
+											</tr>
 										</tbody>
 									</table>
 								</li>
-							</ul>							
+							</ul>
 						</div> <!-- end panel -->
 						<div class="exit  text-right"><a href="#" class="exit-item" data-toggle="modal" data-target="#myModal2" id="open_modal_btn">탈퇴하기</a></div>
 						<div class="Go text-center">
 							<button type="button" class="btn btn-primary btn-lg" id="complete" style="width: 200px; height: 80px;">수정완료</button>
-						</div>						
+						</div>
 					</form>
 				</div>
 			</div> <!-- end container -->
@@ -374,7 +374,7 @@
 			</div>
 			<div class="modal-body" style="text-align: center;">
 				<p>탈퇴, 시 네모에 등록하신 매물과 개인정보 등이 모두 삭제되며 <br> 이후 복구가 불가능 합니다. 정말 탈퇴 하시겠습니까?</p>
-				<img src="${pageContext.request.contextPath}/assets/img/cry.png" style="width: 160px; height: 160px">			
+				<img src="${pageContext.request.contextPath}/assets/img/cry.png" style="width: 160px; height: 160px">
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger"  data-dismiss="modal" id="exit-right" style="width: 100%;">회원 탈퇴하기</button>
@@ -405,25 +405,25 @@
 				$("#set_email02").attr("disabled", true);
 			}
 		});
-	}); // change end 
+	}); // change end
 
-	// 사진 업로드 미리보기 
+	// 사진 업로드 미리보기
 	$(function() {
 		var file = document.querySelector("#best_image");
-		
+
 		file.onchange = function () {
 			var fileList = file.files;
 			// 읽기
 			var reader = new FileReader();
 			reader.readAsDataURL(fileList [0]);
-			
-			// 로드 한 후 
+
+			// 로드 한 후
 			reader.onload = function() {
 				document.querySelector('#preview').src = reader.result;
 			};
 		};
-	// 사진 미리보기 end	
-	
+	// 사진 미리보기 end
+
 		$("#complete").click(function(e) {
 			e.preventDefault();
 
@@ -432,7 +432,7 @@
             if (!regex.min_length('#co_name', 2, '중개사무소명은 최소 2자 이상 입력 가능합니다.')) { return false; }
             if (!regex.max_length('#co_name', 10, '중개사무소명은 최대 10자 까지만 입력 가능합니다.')) { return false; }
 
-            // 중개사 번호 검사 
+            // 중개사 번호 검사
             if (!regex.value('#co_number', '중개사 등록번호 입력하세요.')) { return false; }
            	var pattern2 = /^[0-9]*$/;
            	if (!pattern2.test($('#co_number').val())) {
@@ -473,14 +473,14 @@
 			/*
             //주소검사 1
             if (!regex.value('#sample2_postcode', '주소를 입력하세요.')) { return false; }
-                        
+
             //주소검사 2
             if (!regex.value('#sample2_address', '상세주소를 입력하세요.')) { return false; }
-            */       
+            */
 
             // 중개사 대표명
             if (!regex.value('#coe_name', '중개사 대표명을 입력하세요.')) { return false; }
-            if (!regex.kor('#coe_name', '중개사무소명은 한글만 입력 가능합니다.')) { return false; }	
+            if (!regex.kor('#coe_name', '중개사무소명은 한글만 입력 가능합니다.')) { return false; }
             if (!regex.min_length('#coe_name', 2, '중개사 대표명은 최소 2자 이상 입력 가능합니다.')) { return false; }
             if (!regex.max_length('#coe_name', 4, '중개사 대표명은 최대 4자 까지만 입력 가능합니다.')) { return false; }
 
@@ -506,7 +506,7 @@
             if (!regex.min_length('#coe_Telephone3', 4, '최소 4자 이상 입력 가능합니다.')) { return false; }
 
             /*
-        	// 대표사진 검사 
+        	// 대표사진 검사
              var best = $("#best_image").val();
              if (!best) {
                  alert("대표자 사진을 첨부하세요.");
@@ -514,7 +514,7 @@
                   return false;
             }
              */
-        	
+
 
 
             /** 이름 검사 */
@@ -527,14 +527,14 @@
             if (!regex.value('#position', '직급/직책을 입력하세요.')) { return false; }
 
             /*
-            // 이메일 검사 
+            // 이메일 검사
             if(!regex.value('#set_email01', '이메일 앞자리를 입력하세요.')) {return false;}
             if(!regex.eng('#set_email01','이메일은 영문만 입력가능합니다.')) {return false;}
 
             if(!regex.value('#set_email02', '이메일 뒷자리를 입력하세요.')) {return false;}
             */
             /*
-            // 비밀번호 검사 
+            // 비밀번호 검사
         	if (!regex.value('#co_pw', '비밀번호를 입력하세요.')) {return false;}
         	if (!regex.min_length('#co_pw', 4, '비밀번호는 최소 4자 이상 입력 가능합니다.')) { return false; }
             if (!regex.max_length('#co_pw', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
@@ -543,7 +543,7 @@
             if (!regex.max_length('#co_pw_check', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
             if (!regex.compare_to('#co_pw', '#co_pw_check', '비밀번호 확인이 잘못되었습니다.')) { return false; }
 			*/
-			
+
 			//새 비밀번호 검사
 			if ($("#co_pw").val() != null && $("#co_pw").val() != "") {
 				if (!regex.value('#newco_pw', '비밀번호를 입력하세요.')) {return false;}
@@ -554,7 +554,7 @@
 	            if (!regex.max_length('#co_pw_check', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
 	            if (!regex.compare_to('#newco_pw', '#co_pw_check', '비밀번호 확인이 잘못되었습니다.')) { return false; }
 			}
-			
+
             /**핸드폰 검사1 */
             if (!regex.value('#phoneNumber2', '휴대폰 번호를 입력하세요.')) { return false; }
             if (!pattern2.test($('#phoneNumber2').val())) {
@@ -564,12 +564,12 @@
                 return false;
             }
             if (!regex.min_length('#phoneNumber2', 4, '최소 3자 이상 입력 가능합니다.')) { return false; }
-             
-            // 휴대폰 검사1 end 
 
-            
-            
-            // 휴대폰 검사2 
+            // 휴대폰 검사1 end
+
+
+
+            // 휴대폰 검사2
             if(!regex.value('#phoneNumber3', '휴대폰 번호를 입력하세요.')) {return false;}
      		if(!regex.min_length('#phoneNumber3',4, " 휴대폰 번호는 4자리를 입력하셔야합니다."))
             if(!pattern2.test($('#phoneNumber3').val())) {
@@ -579,16 +579,16 @@
             	return false;
             }
             // 휴대폰 검사2 end
-            
+
             var form = new FormData(document.getElementById('changeform'));
 
-			
+
 			/** 일반 ajax */
 			$.ajax({
 				type : "POST",
 				url : "co_infochange_ok",
 				dataType : "text",
-				processData: false, 
+				processData: false,
 				contentType: false,
 				data : form,
 				success : function(data){
@@ -597,12 +597,12 @@
 					location.href = "index.do";
 				}
 			});
-			
+
      		//$("#changeform").submit();
-		});	
-		
+		});
+
 	});
-	
+
 </script>
 
 

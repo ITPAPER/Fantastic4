@@ -21,7 +21,7 @@
    body, html {
       height: 100%;
    }
-   
+
    .logo {
    margin-left: 30px;
 }
@@ -153,12 +153,12 @@
                                  <!-- ${pageContext.request.contextPath} NONO!!!! -->
                                  <c:url value="/view.ok" var="view">
                                     <c:param name="maemul_num" value="${item.maemul_num}"/>
-                                 </c:url> 
-                                  <a href="${view}"> 
+                                 </c:url>
+                                  <a href="${view}">
                                      <div class="maemul" id="maemul">
                                          <div class="maemul-image">
                                          <%--????? --%>
-                                              <span><img src="${pageContext.request.contextPath}/assets/upload${item.file_path}"></span>
+                                              <span><img src="${pageContext.request.contextPath}/download.do?file=${item.file_path}"></span>
                                           </div>
                                           <div class="maemul-detailed">
                                              <c:choose>
@@ -168,7 +168,7 @@
                                                            <span class="price">
                                                                <strong>${item.monthly}만원</strong>
                                                            </span>
-                                                           
+
                                                            <span class="Gprice badge badge-gun">권</span>
                                                            <span class="Gprice-item">
                                                                   <strong>${item.warrenty}만원</strong>
@@ -181,7 +181,7 @@
                                                            <span class="price">
                                                                <strong>${item.sale}만원</strong>
                                                            </span>
-                                                           
+
                                                            <span class="Gprice badge badge-gun">보증금</span>
                                                            <span class="Gprice-item">
                                                                <strong>${item.pre_war}만원</strong>
@@ -197,14 +197,14 @@
                                                   <c:choose>
                                                      <c:when test="${item.manage_ex != 0}">
                                                         <span class="maemul-top">관리비
-                                                            <span class="s_price">${item.manage_ex}</span>만</span>   
+                                                            <span class="s_price">${item.manage_ex}</span>만</span>
                                                      </c:when>
                                                      <c:otherwise>
                                                         <span class="maemul-top">관리비
                                                             <span class="s_price">없음</span></span>
                                                      </c:otherwise>
                                                   </c:choose>
-                                                  
+
                                               </div>
                                               <!-- maemul-simple end -->
                                               <div class="maemul-address">
@@ -225,8 +225,8 @@
                                               <a href="${pageContext.request.contextPath}/maemul/delete_ok?maemul_num=${item.maemul_num}">
                                                  <button class="btn btn-primary delete">삭제</button>
                                               </a>
-                                          </div>   
-                                      </div> <!-- 매물 end --> 
+                                          </div>
+                                      </div> <!-- 매물 end -->
                                   </a>
                               </td>
                               <td>
@@ -238,14 +238,14 @@
                                       <div class="register">
                                           <span class="register-item">등록일:</span>
                                           <span class="register-position">${item.reg_date}</span>
-                                      </div>   
+                                      </div>
                                  </div>
                               </td>
                           </tr>
                                 </c:forEach>
                              </c:otherwise>
                           </c:choose>
-                          
+
                       </tbody>
                   </thead>
               </table>
@@ -254,7 +254,7 @@
    <!-- 페이지 번호 구현부분 !!! -->
     <div class="page-number">
         <ul class="pagination pagination-lg">
-           
+
     <!-- 페이지 번호 구현  -->
     <%--이전 그룹에 대한 링크  --%>
     <c:choose>
@@ -270,13 +270,13 @@
               <span aria-hidden="true">&laquo;</span>
                </a>
           </li>
-             
+
         </c:when>
         <c:otherwise>
             <li class="disabled"><span aria-hidden="true">&laquo;</span></li>
         </c:otherwise>
     </c:choose>
-    
+
     <%--페이지 번호 (시작 페이지 부터 끝 페이지까지 반복) --%>
     <c:forEach var="i" begin="${pageData.startPage}" end="${pageData.endPage}" varStatus="status">
         <%--이동할 URL 생성 --%>
@@ -284,7 +284,7 @@
             <c:param name="page" value="${i}" />
             <c:param name="keyword" value="${keyword}"/>
         </c:url>
-        
+
         <%--페이지 번호 출력 --%>
         <c:choose>
             <%-- 현재 머물고 있는 페이지 번호를 출력할 경우 링크 적용 안함 --%>
@@ -297,7 +297,7 @@
             </c:otherwise>
         </c:choose>
     </c:forEach>
-    
+
     <%--다음 그룹에 대한 링크  --%>
     <c:choose>
         <%-- 다음 그룹으로 이동 가능하다면? --%>
@@ -338,7 +338,7 @@
    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
    <script type="text/javascript">
-   
+
       function sakje(e) {
          $(".delete").click(function(e) {
             if(confirm("정말 삭제하시겠습니까?") == false) {
@@ -346,7 +346,7 @@
             }
          });
       }
-      
+
       function update(e) {
          $(".update").click(function(e) {
             if(confirm("수정할떄 매물이미지는 초기화됩니다 정말수정하겠습니까?") == false) {
@@ -360,7 +360,7 @@
          update();
       });
 
-      
+
    </script>
 </body>
 </html>

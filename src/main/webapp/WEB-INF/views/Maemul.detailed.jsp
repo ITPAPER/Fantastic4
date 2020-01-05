@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
-   
+
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,12 +22,12 @@
 
 
 <style type="text/css">
-   
+
 html, body {
    margin: 0;
    padding: 0;
    width: 100%;
-   
+
 }
 
 
@@ -151,7 +151,7 @@ html, body {
       <c:otherwise>
          content: "${output.floor}/${output.all_floor}층"
       </c:otherwise>
-      
+
    </c:choose>
 }
 .M_icon_item4 {
@@ -195,12 +195,12 @@ html, body {
    <div class="container">
       <div class="row">
          <!-- 본문 영역 -->
-         <div class="col-xs-8">            
+         <div class="col-xs-8">
             <!-- 캐러셀 영역 구성 -->
          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- 현재 위치 표시 -->
             <!-- 사진 length 만큼 늘어나게 처리 -->
-            <ol class="carousel-indicators">  
+            <ol class="carousel-indicators">
                <c:forEach var="C_image" items="${fileoutput}" varStatus="status">
                   <c:if test="${C_image.fieldName eq 'maemulinput_imgs'}">
                      <c:choose>
@@ -213,7 +213,7 @@ html, body {
                      </c:choose>
                   </c:if>
                </c:forEach>
-             </ol> 
+             </ol>
 
             <!-- 내용 영역 -->
             <div class="carousel-inner center-block">
@@ -222,12 +222,12 @@ html, body {
                      <c:choose>
                         <c:when test="${status.index eq 1}">
                                 <div class="item active">
-                                    <img src="${pageContext.request.contextPath}/assets/upload${Mimg.filePath}">
+                                    <img src="${pageContext.request.contextPath}/download.do?file=${Mimg.filePath}">
                                 </div>
                                </c:when>
                                <c:otherwise>
                                   <div class="item">
-                                      <img src="${pageContext.request.contextPath}/assets/upload${Mimg.filePath}">
+                                      <img src="${pageContext.request.contextPath}/download.do?file=${Mimg.filePath}">
                                   </div>
                                </c:otherwise>
                      </c:choose>
@@ -248,14 +248,14 @@ html, body {
                   <div class="title">
                      매물정보
                   </div>
-                  
+
                   <div class="row">
                      <div class="col-sm-12 col-md-6">
                         <div class="text">
                            <span class="name">매물번호</span>
                            <span class="value">${output.maemul_num}</span>
                         </div>
-                        
+
                      </div>
                      <div class="col-sm-12 col-md-6">
                         <div class="text">
@@ -279,7 +279,7 @@ html, body {
                               <c:otherwise>
                                  <span class="value">있음/${output.elv}대</span>
                               </c:otherwise>
-                           </c:choose>                           
+                           </c:choose>
                         </div>
                      </div>
                      <div class="col-sm-12 col-md-6">
@@ -306,7 +306,7 @@ html, body {
                                  <span class="name">기보증금/기월세</span>
                                  <span class="value">${output.pre_war}만원 / ${output.pre_month}만원</span>
                               </c:otherwise>
-                           </c:choose>                           
+                           </c:choose>
                         </div>
                      </div>
                      <div class="col-sm-12 col-md-6">
@@ -344,7 +344,7 @@ html, body {
 					      <c:otherwise>
 					          ${output.floor}/${output.all_floor}층
 					      </c:otherwise>
-					      
+
 					   </c:choose></span>
                         </div>
                      </div>
@@ -385,7 +385,7 @@ html, body {
                         <c:otherwise>
                         </c:otherwise>
                      </c:choose>
-                     <!--  
+                     <!--
                      <div class="col-sm-12 col-md-6">
                         <div class="text">
                            <span class="name">추천업종</span>
@@ -401,14 +401,14 @@ html, body {
                      </div>
                   </div> <!-- row end -->
                   <div class="row last-row">
-                  <!--  
+                  <!--
                      <div class="col-md-12">
                         <div class="Text">
                            <span class="name">옵션</span>
                            <span class="value">#24시간개방</span>
                         </div>
                      </div>
-                  -->   
+                  -->
                   </div>
                </div> <!-- B_info end -->
                <!-- DB_info -->
@@ -418,9 +418,9 @@ html, body {
                      <div class="col-md-12 index">
                         <div class="Value">
                            <span class="value_detail" style="line-height: 180%;">
-                           
+
                            ${output.content}
-                              
+
                               </span>
                         </div>
                      </div>
@@ -445,7 +445,7 @@ html, body {
                                  <div class="image">
                                     <c:forEach var="Bitem" items="${fileoutput}" varStatus="status">
                                                    <c:if test="${Bitem.fieldName eq 'getfile'}">
-                                                       <img src="${pageContext.request.contextPath}/assets/upload${Bitem.filePath}" style="width:319px; height:160px;">
+                                                       <img src="${pageContext.request.contextPath}/download.do?file=${Bitem.filePath}" style="width:319px; height:160px;">
                                                    </c:if>
                                                </c:forEach>
                                  </div>
@@ -480,7 +480,7 @@ html, body {
                   </table>
                   <div class="subtext">
                      <span class="fas fa-exclamation-circle"></span>
-                     <span class="comment">중개수수료는 실제 적용되는 금액과 다를 
+                     <span class="comment">중개수수료는 실제 적용되는 금액과 다를
                      수 있으니, 계약 전 확인이 필요합니다.</span>
                   </div>
                </div>
@@ -512,7 +512,7 @@ html, body {
                                  <span class="price-level">만원</span>
                               </c:otherwise>
                            </c:choose>
-                        </div>                     
+                        </div>
                      </div> <!-- jumbo end -->
                      <div class="M_location">
                         <div class="location_grid">
@@ -536,7 +536,7 @@ html, body {
                         </div>
                         <div class="office_info">
                            <div class="profile-default">
-                              <img alt="" src="assets/upload${coOutput.broker_img}">
+                              <img alt="" src="${pageContext.request.contextPath}/download.do?file=${coOutput.broker_img}">
                            </div>
                            <div class="office_info_item">
                               <div class="office_info_name">
@@ -568,8 +568,8 @@ html, body {
                   </div>
                   <div class="modal-body" style="text-align: center;">
                      <div class="modal_profile_default">
-                        <img class="fa-user" alt="" src="assets/upload${coOutput.broker_img}">
-                     </div>   
+                        <img class="fa-user" alt="" src="${pageContext.request.contextPath}/download.do?file=${coOutput.broker_img}">
+                     </div>
                      <div class="I_Number">담당자 연락처</div>
                      <div class="I_Title"><STRONG>
                         <span class="I_Name">${coOutput.assi_name}</span>
@@ -584,7 +584,7 @@ html, body {
                      <hr />
                      <div class="Explain">
                         "세모 보고 연락드렸습니다."라고 말씀하신 후<br>
-                        매물번호를 알려주시면 친절하게 안내받으실 수 있습니다. 
+                        매물번호를 알려주시면 친절하게 안내받으실 수 있습니다.
                      </div>
                   </div> <!-- modal-body end -->
                   <div class="modal-footer bg-info">
@@ -600,7 +600,7 @@ html, body {
                      <div class="Modal_I_Phone">
                         대표번호:<span class="Modal_I_Phone_item">${coOutput.tel}</span>
                      </div>
-                  </div> 
+                  </div>
                </div>
             </div> <!-- moda-dialog end -->
          </div> <!-- modal end -->
@@ -608,9 +608,9 @@ html, body {
    </div>
    <!-- Footer -->
    <div class="footer">
-   
+
    </div>
-   <!-- Footer END -->   
+   <!-- Footer END -->
 </div>
 <!-- 컨텐츠  END -->
 
@@ -629,10 +629,10 @@ html, body {
 		} else {
 			position = "중개보조원";
 		}
-		
-		$("#coPosition").html(position);	
+
+		$("#coPosition").html(position);
 	});
-	
+
 </script>
 </body>
 </html>
