@@ -98,7 +98,7 @@
 </style>
 <body>
 	<!-- 상단 메뉴 바 -->
-	<%@ include file="./assets/include/loginHeader.jsp" %>
+	<%@ include file="./assets/include/header.jsp" %>
 	<!-- 상단 메뉴바  -->
 
 <!--  로그인 Modal -->

@@ -17,7 +17,7 @@
 </head>
 <body>
  <!-- 상단 메뉴바  -->
- <%@ include file="assets/include/co_loginHeader.jsp"%>
+ <%@ include file="assets/include/header.jsp"%>
  <!-- //상단 메뉴바 -->
 
 	<!--page title-->

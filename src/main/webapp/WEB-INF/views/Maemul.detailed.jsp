@@ -168,7 +168,7 @@ html, body {
          content: "없음"
       </c:when>
       <c:otherwise>
-         content: "${output.manage_ex}"
+         content: "${output.manage_ex}만원"
       </c:otherwise>
    </c:choose>
 }

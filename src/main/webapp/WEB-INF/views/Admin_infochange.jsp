@@ -127,8 +127,7 @@
 													value="${co_UserInfo.co_name}"></td>
 												</tr>
 												<tr>
-													<th class="active"><span class="left-name">중개사
-															등록번호</span></th>
+													<th class="active"><span class="left-name">중개사 등록번호</span></th>
 													<td><input type="text" class="form-control sg-form-control-md" id="co_number"
 														name="co_number" style="width: 350px; height: 50px;" value="${co_UserInfo.broker_num}">
 														<a href="${pageContext.request.contextPath}/download.do?file=${ceoImgfilepath}" download="중개사등록증">
@@ -140,8 +139,7 @@
 													</td>
 												</tr>
 												<tr>
-													<th class="active"><span class="left-name">사업자
-															등록번호</span></th>
+													<th class="active"><span class="left-name">사업자 등록번호</span></th>
 													<td><input type="text"
 														class="form-control sg-form-control-md" id="coe_number"
 														name="coe_number" style="width: 350px; height: 50px;" value="${co_UserInfo.office_num}">
@@ -301,13 +299,8 @@
 													</td>
 												</tr>
 												<tr>
-													<th class="active"><span class="left-name">대표
-															사진</span></th>
-													<td><img src="./img/ceo_image.jpg" class="coe_image">
-														<input type="file" class="form-control" id="coe_image"
-														name="coe_image" style="display: none;" value="${co_UserInfo.broker_img}"> <label
-														for="coe_image" class="label_ceo_image">
-													</label></td>
+													<th class="active"><span class="left-name">대표사진</span></th>
+													<td><img src="${pageContext.request.contextPath}/download.do?file=${co_UserInfo.broker_img}" class="coe_image"></td>
 												</tr>
 											</tbody>
 										</table>

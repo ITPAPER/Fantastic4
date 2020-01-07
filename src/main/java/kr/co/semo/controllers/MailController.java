@@ -62,7 +62,7 @@ public class MailController {
       session.setMaxInactiveInterval(60*60);
       
       String subject = "비밀번호 변경을 위한 링크 주소입니다";
-      String content = "http://localhost:8080/semo/Pw_reset.do";
+      String content = "http://itproject.ezenac.co.kr/semoproject/Pw_reset.do";
 
       /** 입력여부 검사후, 입력되지 않은 경우 이전 페이지로 보내기 */
       // 받는 메일 주소 검사하기
